@@ -12,15 +12,15 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
 
     override protected void Awake()
     {
+        //durationIncr = 40;
         durationIncr = 40;
-
         base.Awake();
     }
 
     // Use this for initialization
     override protected void Start()
     {
-        gameObject.GetComponent<Animator>().speed = 0;
+        //gameObject.GetComponent<Animator>().speed = 0;
 
         transform.Find("RulerParent").gameObject.SetActive(false);
 
@@ -31,7 +31,7 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
             idxSample = 0;
             if (samplesNumber == 0)
             {
-                samplesNumber = 100;
+                samplesNumber = 50;
             }
 
             if (heightBlock == null)
@@ -44,29 +44,32 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
         }
 
         base.Start();
-        
+
     }
 
     // Update is called once per frame
-    override protected void Update() {
+    override protected void Update()
+    {
         base.Update();
-            
-	}
+
+    }
 
     public override IEnumerator DisplayScenarioItem()
     {
-        // Wait until the avatar is not visible
+        // Wait until the avatar is visible
         ProjectUser_Avatar _currentSI = dataManager.CurrentScenarioItem as ProjectUser_Avatar;
         while (_currentSI.isAvatarVisible == false)
         {
             yield return null;
         }
-        yield return new WaitForSeconds(1);
-        gameObject.GetComponent<Animator>().speed = 1;
+        //yield return new WaitForSeconds(1);
+        //gameObject.GetComponent<Animator>().speed = 1;
     }
 
     public IEnumerator DisplayHeight()
     {
+        Debug.Log("Display height");
+
         while (true)
         {
             if (idxSample < samplesNumber)
@@ -76,6 +79,7 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
             }
             else
             {
+                heightBlock.SetActive(true);
                 float height = Mathf.Round(DataManager.GetMean(dataManager.HeightSamples) * 100);
                 GameObject.FindGameObjectWithTag("UserHeight").GetComponent<Text>().text = height.ToString();
                 Debug.Log("Height : " + height);
@@ -83,6 +87,5 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
             }
             yield return null;
         }
-        //yield return null;
     }
 }

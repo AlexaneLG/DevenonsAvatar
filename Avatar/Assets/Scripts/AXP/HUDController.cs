@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUDController : MonoBehaviour {
+public class HUDController : MonoBehaviour
+{
 
     public DataManager dataManager;
 
@@ -12,7 +13,6 @@ public class HUDController : MonoBehaviour {
     public GameObject altitudeText;
     public GameObject attitudeText;
     public GameObject speedText;
-    //public GameObject distanceCameraAvatarText;
     public GameObject canyonWidthText;
     public GameObject bottomFOVText;
     public GameObject upFOVText;
@@ -24,7 +24,6 @@ public class HUDController : MonoBehaviour {
     private float _altitudeValue;
     private float _speedValue;
     private float _rotationValue;
-    //private float _distanceCameraAvatarValue;
     private float _canyonWidthValue;
     private float _bottomFOVValue = 0;
     private float _upFOVValue = 0;
@@ -32,8 +31,10 @@ public class HUDController : MonoBehaviour {
     private Vector3 _previousPosition;
     private float _previousTime;
 
-    // Use this for initialization
-    void Start () {
+    private bool _init;
+
+    void Awake()
+    {
         // Get Data Manager
         dataManager = GameObject.FindGameObjectWithTag("DataManager").GetComponent<DataManager>();
         // Set main camera
@@ -65,13 +66,6 @@ public class HUDController : MonoBehaviour {
         {
             compassImage = GameObject.FindGameObjectWithTag("CompassNeedle");
         }
-        // Set distance
-        /*if (distanceCameraAvatarText == null)
-        {
-            distanceCameraAvatarText = GameObject.FindGameObjectWithTag("DistanceCameraAvatar");
-            _distanceCameraAvatarValue = GetDistanceCameraAvatar();
-            distanceCameraAvatarText.GetComponent<Text>().text = _distanceCameraAvatarValue.ToString(); // HERE
-        }*/
         // Set camera ray
         if (canyonWidthText == null)
         {
@@ -79,7 +73,7 @@ public class HUDController : MonoBehaviour {
             _canyonWidthValue = 0;
         }
         // Set fov
-        if(bottomFOVText == null)
+        if (bottomFOVText == null)
         {
             bottomFOVText = GameObject.FindGameObjectWithTag("BottomFOV");
         }
@@ -87,15 +81,24 @@ public class HUDController : MonoBehaviour {
         {
             upFOVText = GameObject.FindGameObjectWithTag("UpFOV");
         }
+    }
+
+    // Use this for initialization
+    void Start()
+    {
         // Set previous position
         _previousPosition = Vector3.zero;
         _previousTime = 0f;
+    }
 
+    void OnEnable()
+    {
         StartCoroutine(DisplayDatas());
-}
+    }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         // Update attitude
         _attitudeValue = Mathf.Round(dataManager.Attitude * 30);
         attitudeText.GetComponent<Text>().text = _attitudeValue.ToString();
@@ -106,20 +109,12 @@ public class HUDController : MonoBehaviour {
         // Update altitude
         _altitudeValue = Mathf.Round(dataManager.Altitude);
         altitudeText.GetComponent<Text>().text = _altitudeValue.ToString();
-        // Update speed
-        //_speedValue = Mathf.Round(dataManager.Speed);
-        //_speedValue = GetAvatarSpeed();
-        //speedText.GetComponent<Text>().text = _speedValue.ToString();
         // Update rotation
         _rotationValue = dataManager.LocalRotation;
         compassImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
             compassImage.transform.rotation.x,
             compassImage.transform.rotation.y,
             _rotationValue);
-        // Update distance
-        /*_distanceCameraAvatarValue = GetDistanceCameraAvatar();
-        distanceCameraAvatarText.GetComponent<Text>().text = _distanceCameraAvatarValue.ToString(); // HERE*/
-        
     }
 
     private void FixedUpdate()
@@ -131,13 +126,8 @@ public class HUDController : MonoBehaviour {
             // Update FOV
             DisplayFieldOfVision();
         }
-            
-    }
 
-    /*public float GetDistanceCameraAvatar()
-    {
-        return Vector3.Distance(mainCamera.transform.position, GameObject.FindGameObjectWithTag("Avatars").transform.position);
-    }*/
+    }
 
     public void DisplayCanyonWidth()
     {
@@ -158,7 +148,8 @@ public class HUDController : MonoBehaviour {
                 _canyonWidthValue = rightDistance + leftDistance;
                 canyonWidthText.GetComponent<Text>().text = _canyonWidthValue.ToString();
             }
-        } else
+        }
+        else
         {
             canyonWidthText.GetComponent<Text>().text = "-";
         }
@@ -250,7 +241,8 @@ public class HUDController : MonoBehaviour {
             _previousTime = Time.time;
             float speed = Mathf.Round(deltaDistance / deltaTime);
             return speed;
-        } else
+        }
+        else
         {
             return 0f;
         }

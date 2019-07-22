@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Environnement_AXP_Avatar : AugmentedScenarioItem {
+public class Environnement_AXP_Avatar : AugmentedScenarioItem
+{
 
     protected override void Awake()
     {
@@ -12,21 +13,23 @@ public class Environnement_AXP_Avatar : AugmentedScenarioItem {
     }
 
     // Use this for initialization
-    protected override void Start () {
+    protected override void Start()
+    {
         for (int i = 0; i < transform.childCount; ++i)
         {
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        //dataManager.DisplayHUD(false); // hide HUD
+        dataManager.DisplayHUD(false); // hide HUD
 
-        base.Start(); 
+        base.Start();
     }
-	
-	// Update is called once per frame
-	protected override void Update () {
+
+    // Update is called once per frame
+    protected override void Update()
+    {
         base.Update();
-	}
+    }
 
     public override IEnumerator DisplayScenarioItem()
     {

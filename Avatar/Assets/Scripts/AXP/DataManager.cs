@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour {
+public class DataManager : MonoBehaviour
+{
 
     public GameObject characterManager;
     public CharacterControllerBasedOnAxis characterController;
@@ -122,11 +123,12 @@ public class DataManager : MonoBehaviour {
 
     private void Awake()
     {
-        isKinectActive = (KinectManager.Instance && KinectManager.Instance.GetUsersCount() > 0) ? true : false;
+        isKinectActive = (KinectManager.Instance != null) ? true : false;
     }
 
     // Use this for initialization
-    public virtual void Start () {
+    public virtual void Start()
+    {
         if (characterManager == null)
         {
             characterManager = GameObject.FindGameObjectWithTag("CharacterManager");
@@ -160,11 +162,13 @@ public class DataManager : MonoBehaviour {
         {
             HUD = GameObject.FindGameObjectWithTag("HUD");
         }
-        
+        isKinectActive = (KinectManager.Instance != null) ? true : false;
+        DisplayHUD(false); // hide HUD
     }
 
     // Update is called once per frame
-    public virtual void Update () {
+    public virtual void Update()
+    {
         _speed = characterController.speed;
         _attitude = characterController.direction;
         _altitude = (characterController.transform.position.y - _startAltitude);
@@ -254,6 +258,6 @@ public class DataManager : MonoBehaviour {
     {
         HUD.SetActive(display);
     }
-    
+
     #endregion
 }
