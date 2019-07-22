@@ -1,0 +1,19 @@
+{
+  "comPort": 6,
+  "tcpPort": 1408,
+  "carryingWaveFrequency": 69,
+  "triggerIndex": 0,
+  "triggerImpulseDuration": 255,
+  "mapping": [
+    "EMG 1",
+    "EMG 2",
+    "EMG 3",
+    "EMG 4",
+    "ECG",
+    "RESP",
+    "EMG 5",
+    "EMG 6",
+    "MOTION 1",
+    "MOTION 2"
+  ]
+}

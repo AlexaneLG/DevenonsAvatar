@@ -1,0 +1,29 @@
+<settings>
+  <Camera_settings>
+    <cameraDistance>-4</cameraDistance>
+    <cameraAltitude>1.5</cameraAltitude>
+  </Camera_settings>
+  <Main_settings>
+    <Bascule>20</Bascule>
+    <Vitesse_rotation_mode_libre>5</Vitesse_rotation_mode_libre>
+    <Vitesse_rotation_mode_canyon>2</Vitesse_rotation_mode_canyon>
+    <Angle_de_rotation_max>25</Angle_de_rotation_max>
+    <Altitude_mode_libre>112</Altitude_mode_libre>
+    <Vitesse_de_vol>300</Vitesse_de_vol>
+    <Facteur_d_altitude>200</Facteur_d_altitude>
+    <Dimension_meteores>20</Dimension_meteores>
+  </Main_settings>
+  <Scenario_settings>
+    <start_Avatar_Duration>6</start_Avatar_Duration>
+    <projectUser_Avatar_Duration>6</projectUser_Avatar_Duration>
+    <takeOff_Avatar_Duration>4</takeOff_Avatar_Duration>
+    <dive_Avatar_Duration>2</dive_Avatar_Duration>
+    <freeFly_Avatar_1_Duration>26</freeFly_Avatar_1_Duration>
+    <Canyon_Avatar_Duration>56</Canyon_Avatar_Duration>
+    <freeFly_Avatar_2_Duration>0</freeFly_Avatar_2_Duration>
+    <storm_Avatar_Duration>20</storm_Avatar_Duration>
+    <freeFly_Avatar_3_Duration>2</freeFly_Avatar_3_Duration>
+    <freeze_Avatar_Duration>45</freeze_Avatar_Duration>
+    <end_Avatar_Duration>15</end_Avatar_Duration>
+  </Scenario_settings>
+</settings>

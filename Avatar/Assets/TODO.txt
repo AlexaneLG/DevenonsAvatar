@@ -1,0 +1,12 @@
+﻿- Echelles variables pour les phases
+- Visualisation 20s, 30s, ou 40s de données
+- Fichier de config
+- Voir les solutions BlackMagic Design y compris SDK windows
+- Detecter la taille de l'utilisateur
+- Champs texte pour le dossier
+
+
+Mardi 22 à faire
+
+- Réglage des lunettes
+- Réglage des fichiers

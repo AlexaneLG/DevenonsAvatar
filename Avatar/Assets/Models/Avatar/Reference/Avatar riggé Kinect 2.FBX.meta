@@ -1,0 +1,125 @@
+fileFormatVersion: 2
+guid: 0fcf8efef14c5ed409017b0389289c34
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Box001
+    100004: Head
+    100006: Hip Center
+    100008: Left Ankle
+    100010: Left Colar
+    100012: Left Colar001
+    100014: Left Elbow
+    100016: Left Elbow001
+    100018: Left Fingers
+    100020: Left Fingers001
+    100022: Left Foot
+    100024: Left Hand
+    100026: Left Hand001
+    100028: Left Hip
+    100030: Left Knee
+    100032: Left Shoulder
+    100034: Left Shoulder001
+    100036: Left Thigh
+    100038: Left Wrist
+    100040: Left Wrist001
+    100042: left_fingers-DC_Null
+    100044: Neck
+    100046: Right Ankle
+    100048: Right Foot
+    100050: Right Hip
+    100052: Right Knee
+    100054: Right Thigh
+    100056: Root Join
+    100058: Spine
+    400000: //RootNode
+    400002: Box001
+    400004: Head
+    400006: Hip Center
+    400008: Left Ankle
+    400010: Left Colar
+    400012: Left Colar001
+    400014: Left Elbow
+    400016: Left Elbow001
+    400018: Left Fingers
+    400020: Left Fingers001
+    400022: Left Foot
+    400024: Left Hand
+    400026: Left Hand001
+    400028: Left Hip
+    400030: Left Knee
+    400032: Left Shoulder
+    400034: Left Shoulder001
+    400036: Left Thigh
+    400038: Left Wrist
+    400040: Left Wrist001
+    400042: left_fingers-DC_Null
+    400044: Neck
+    400046: Right Ankle
+    400048: Right Foot
+    400050: Right Hip
+    400052: Right Knee
+    400054: Right Thigh
+    400056: Root Join
+    400058: Spine
+    2300000: Box001
+    3300000: Box001
+    4300000: Box001
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Box001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

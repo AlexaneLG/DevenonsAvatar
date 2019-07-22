@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &127974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 427974}
+  - component: {fileID: 11427974}
+  m_Layer: 0
+  m_Name: TeaSocket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &427974
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11427974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fa9b7aeaa26ca40b6fe08ea0b33d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ip: 127.0.0.1
+  port: 1408
+  packetProcessed: 0
+  APPS: 0
+  packetsInQueue: 0
+  timeStamp: 0
+  emg_1: 0
+  emg_2: 0
+  emg_3: 0
+  emg_4: 0
+  emg_5: 0
+  emg_6: 0
+  emg_7: 0
+  emg_8: 0
+  ecg: 0
+  resp: 0
+  gsr: 0
+  EMG1Drawer: {fileID: 0}
+  EMG2Drawer: {fileID: 0}
+  EMG3Drawer: {fileID: 0}
+  EMG4Drawer: {fileID: 0}
+  EMG5Drawer: {fileID: 0}
+  EMG6Drawer: {fileID: 0}
+  EMG7Drawer: {fileID: 0}
+  EMG8Drawer: {fileID: 0}
+  ECGDrawer: {fileID: 0}
+  RESPDrawer: {fileID: 0}
+  GSRDrawer: {fileID: 0}
+  motion1: {fileID: 0}
+  motion2: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 127974}
+  m_IsPrefabParent: 1

@@ -1,0 +1,54 @@
+# =============== #
+# =============== #
+# Unity generated #
+# =============== #
+
+[Oo]bj/
+[Bb]uild
+[Ll]ibrary/
+sysinfo.txt
+*.stackdump
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+.vs/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
+
+Avatar/Assets/StreamingAssets/settings_old.xml
+Avatar/Assets/StreamingAssets/settings_old.xml.meta
+Avatar/Build/
+Avatar/Assets/AVProMovieCapture.meta
+Avatar/Assets/AVProMovieCapture/Plugins.meta
+Avatar/Assets/Models/ISS/ISS On-X/INT.meta
+Avatar/Assets/StreamingAssets/dump.csv
+Avatar/Assets/StreamingAssets/dump.csv.meta
+Avatar/Assets/StreamingAssets/Video.avi
+Avatar/Assets/StreamingAssets/Video.avi.meta
+
+Avatar/Temp/
+Avatar/Assembly-CSharp.csproj
+Avatar/Assembly-CSharp-firstpass.csproj
+Avatar/Assembly-CSharp-Editor.csproj
+Avatar/Assembly-CSharp-Editor-firstpass.csproj
+Avatar/VideoCaptureLib_Log.txt
+Avatar/Builds/

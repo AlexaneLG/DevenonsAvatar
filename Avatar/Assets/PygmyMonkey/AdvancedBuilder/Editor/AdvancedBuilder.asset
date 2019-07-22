@@ -1,0 +1,284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d89344963f3845a6962e222ee0b4b74, type: 3}
+  m_Name: AdvancedBuilder
+  m_EditorClassIdentifier: 
+  m_productParameters:
+    bundleVersion: 1.1.0
+    buildNumber: 12
+  m_releaseTypes:
+    m_releaseTypeList:
+    - isActive: 1
+      name: CDF
+      bundleIdentifier: com.avatar.cdf
+      productName: AvatarCDF
+    - isActive: 1
+      name: Villette
+      bundleIdentifier: com.avatar.villette
+      productName: AvatarVillette
+  m_platforms:
+    m_plateformAndroid:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList:
+        - isActive: 1
+          name: Google Play
+        - isActive: 0
+          name: Amazon Store
+        - isActive: 0
+          name: Samsung AppStore
+        m_platformArchitectureList:
+        - isActive: 1
+          name: FAT (ARMv7 + x86)
+          buildTargetGroup: 7
+          buildTarget: 13
+          binarySuffix: .apk
+        - isActive: 0
+          name: ARMv7
+          buildTargetGroup: 7
+          buildTarget: 13
+          binarySuffix: .apk
+        - isActive: 0
+          name: x86
+          buildTargetGroup: 7
+          buildTarget: 13
+          binarySuffix: .apk
+        name: Android
+      m_textureCompressionList:
+      - m_textureProperties:
+          isActive: 0
+          name: ASTC
+      - m_textureProperties:
+          isActive: 0
+          name: ETC2
+      - m_textureProperties:
+          isActive: 0
+          name: PVRTC
+      - m_textureProperties:
+          isActive: 0
+          name: DXT
+      - m_textureProperties:
+          isActive: 0
+          name: ATC
+      - m_textureProperties:
+          isActive: 0
+          name: ETC
+      - m_textureProperties:
+          isActive: 1
+          name: Generic
+    m_plateformiOS:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList: []
+        m_platformArchitectureList:
+        - isActive: 1
+          name: 
+          buildTargetGroup: 4
+          buildTarget: 9
+          binarySuffix: 
+        name: iOS
+    m_plateformWindows:
+      m_platformProperties:
+        m_isSupported: 1
+        m_distributionPlatformList: []
+        m_platformArchitectureList:
+        - isActive: 0
+          name: Windows x86
+          buildTargetGroup: 1
+          buildTarget: 5
+          binarySuffix: .exe
+        - isActive: 1
+          name: Windows x86_64
+          buildTargetGroup: 1
+          buildTarget: 19
+          binarySuffix: .exe
+        name: Windows
+    m_plateformMac:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList: []
+        m_platformArchitectureList:
+        - isActive: 1
+          name: OSX x86
+          buildTargetGroup: 1
+          buildTarget: 4
+          binarySuffix: .app
+        - isActive: 0
+          name: OSX x86_64
+          buildTargetGroup: 1
+          buildTarget: 27
+          binarySuffix: .app
+        - isActive: 0
+          name: OSX Universal
+          buildTargetGroup: 1
+          buildTarget: 2
+          binarySuffix: .app
+        name: Mac
+    m_plateformLinux:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList: []
+        m_platformArchitectureList:
+        - isActive: 1
+          name: Linux Universal
+          buildTargetGroup: 1
+          buildTarget: 25
+          binarySuffix: .x86_64
+        - isActive: 0
+          name: Linux x86
+          buildTargetGroup: 1
+          buildTarget: 17
+          binarySuffix: .x86
+        - isActive: 0
+          name: Linux x86_64
+          buildTargetGroup: 1
+          buildTarget: 24
+          binarySuffix: .x86_64
+        name: Linux
+    m_plateformWindowsStore:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList: []
+        m_platformArchitectureList:
+        - isActive: 0
+          name: 8.0
+          buildTargetGroup: 14
+          buildTarget: 21
+          binarySuffix: /
+        - isActive: 0
+          name: 8.1
+          buildTargetGroup: 14
+          buildTarget: 21
+          binarySuffix: /
+        - isActive: 0
+          name: Phone 8.1
+          buildTargetGroup: 14
+          buildTarget: 21
+          binarySuffix: /
+        - isActive: 1
+          name: Universal 8.1
+          buildTargetGroup: 14
+          buildTarget: 21
+          binarySuffix: /
+        name: Windows Store
+    m_plateformWebGL:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList:
+        - isActive: 1
+          name: My Website
+        - isActive: 1
+          name: Kongregate
+        m_platformArchitectureList:
+        - isActive: 1
+          name: 
+          buildTargetGroup: 13
+          buildTarget: 20
+          binarySuffix: 
+        name: WebGL
+    m_plateformtvOS:
+      m_platformProperties:
+        m_isSupported: 0
+        m_distributionPlatformList: []
+        m_platformArchitectureList:
+        - isActive: 1
+          name: 
+          buildTargetGroup: 25
+          buildTarget: 37
+          binarySuffix: 
+        name: tvOS
+  m_advancedSettings:
+    customPath: $RELEASE_TYPE/
+    customFileName: $PRODUCT_NAME
+    customBuildMonoScript: {fileID: 0}
+    globalCustomDefines: 
+    overwriteDefines: 0
+    overwriteScenes: 1
+    removeSpacesFromBuildPath: 0
+    useSymlinkLibraries: 0
+    checkAndroidKeystorePasswords: 0
+  m_projectConfigurations:
+    configurationList:
+    - releaseType:
+        isActive: 1
+        name: CDF
+        bundleIdentifier: com.avatar.cdf
+        productName: AvatarCDF
+      platformType: 2
+      distributionPlatform:
+        isActive: 1
+        name: Default
+      platformArchitecture:
+        isActive: 1
+        name: Windows x86_64
+        buildTargetGroup: 1
+        buildTarget: 19
+        binarySuffix: .exe
+      textureProperties:
+        isActive: 1
+        name: Default
+      name: 
+      customDefines: 
+      scenePathList:
+      - Assets\Scenes\Menu.unity
+      - Assets\Scenes\Avatar.unity
+      - Assets\Scenes\Player.unity
+      - Assets\Scenes\SpaceINT.unity
+      - Assets\Scenes\SpaceEXT.unity
+      - Assets\Scenes\SpaceINT-2.unity
+      - Assets\Scenes\Foret.unity
+      - Assets\Scenes\Board.unity
+      isEnabled: 1
+      openBuildFolder: 1
+      appendProject: 0
+      isHeadlessMode: 0
+      isDevelopmentBuild: 0
+      shouldAutoconnectProfiler: 0
+      allowDebugging: 0
+      shouldAutoRunPlayer: 0
+      wsaBuildAndRunDeployTarget: 0
+    - releaseType:
+        isActive: 1
+        name: Villette
+        bundleIdentifier: com.avatar.villette
+        productName: AvatarVillette
+      platformType: 2
+      distributionPlatform:
+        isActive: 1
+        name: Default
+      platformArchitecture:
+        isActive: 1
+        name: Windows x86_64
+        buildTargetGroup: 1
+        buildTarget: 19
+        binarySuffix: .exe
+      textureProperties:
+        isActive: 1
+        name: Default
+      name: 
+      customDefines: 
+      scenePathList:
+      - Assets\Scenes\MenuVillette.unity
+      - Assets\Scenes\Avatar.unity
+      - Assets\Scenes\Avatar-FP.unity
+      - Assets\Scenes\Avatar-JV.unity
+      - Assets\Scenes\Avatar-JV-FP.unity
+      isEnabled: 1
+      openBuildFolder: 1
+      appendProject: 0
+      isHeadlessMode: 0
+      isDevelopmentBuild: 0
+      shouldAutoconnectProfiler: 0
+      allowDebugging: 0
+      shouldAutoRunPlayer: 0
+      wsaBuildAndRunDeployTarget: 0
+    configurationIndex: 0
+    selectedConfigurationIndex: 1

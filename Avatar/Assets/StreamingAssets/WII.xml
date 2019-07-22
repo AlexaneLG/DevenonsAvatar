@@ -1,0 +1,19 @@
+<settings>
+  <Camera_settings>
+    <cameraDistance>-4.170758</cameraDistance>
+    <cameraAltitude>1.128069</cameraAltitude>
+  </Camera_settings>
+  <Main_settings>
+    <baseSpeed_Wii>20</baseSpeed_Wii>
+    <speedMultiplier_Wii>8</speedMultiplier_Wii>
+    <verticalSensitivity>0.008</verticalSensitivity>
+    <horizontalSensitivity>0.008</horizontalSensitivity>
+  </Main_settings>
+  <Scenario_settings>
+    <start_Wii_Duration>2</start_Wii_Duration>
+    <projectUser_Wii_Duration>2</projectUser_Wii_Duration>
+    <freeFly_Wii_Duration>10</freeFly_Wii_Duration>
+    <gates_Wii_Duration>1000</gates_Wii_Duration>
+    <end_Wii_Duration>10</end_Wii_Duration>
+  </Scenario_settings>
+</settings>

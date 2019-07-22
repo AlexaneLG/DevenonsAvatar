@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: feb6ba92df0698e458ea810803fbf9ee
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: chainon 004
+    100004: chainon 005
+    100006: chainon 006
+    100008: chainon 007
+    100010: chainon 008
+    100012: chainon 009
+    400000: //RootNode
+    400002: chainon 004
+    400004: chainon 005
+    400006: chainon 006
+    400008: chainon 007
+    400010: chainon 008
+    400012: chainon 009
+    2300000: chainon 004
+    2300002: chainon 005
+    2300004: chainon 006
+    2300006: chainon 007
+    2300008: chainon 008
+    2300010: chainon 009
+    3300000: chainon 004
+    3300002: chainon 005
+    3300004: chainon 006
+    3300006: chainon 007
+    3300008: chainon 008
+    3300010: chainon 009
+    4300000: chainon 004
+    4300002: chainon 005
+    4300004: chainon 006
+    4300006: chainon 007
+    4300008: chainon 008
+    4300010: chainon 009
+    7400000: open
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: open
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: chainon 004
+        weight: 1
+      - path: chainon 005
+        weight: 1
+      - path: chainon 006
+        weight: 1
+      - path: chainon 007
+        weight: 1
+      - path: chainon 008
+        weight: 1
+      - path: chainon 009
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

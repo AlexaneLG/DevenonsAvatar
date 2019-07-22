@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 10c97b17d1128ae46a8912e85b6ace40
+timeCreated: 1560848962
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Campton-BookItalic
+  fontNames:
+  - Campton-BookItalic
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

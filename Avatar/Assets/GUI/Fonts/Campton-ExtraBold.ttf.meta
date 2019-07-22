@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: e1996108f04323c498354bab63b8fc7e
+timeCreated: 1560848963
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Campton
+  fontNames:
+  - Campton
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 598b19c12f27f6342bd0469aad441579, type: 3}
+  - {fileID: 12800000, guid: 161a3063cac3040469355d38da0f795e, type: 3}
+  - {fileID: 12800000, guid: a6a10234ead5f494d904985b19251a38, type: 3}
+  - {fileID: 12800000, guid: 0a635ba4474da22459a9d4929c9bb4ca, type: 3}
+  - {fileID: 12800000, guid: b20246b49d47528498d7801c34b4f7ad, type: 3}
+  - {fileID: 12800000, guid: d577be07f9b404b4395a8724c2078530, type: 3}
+  - {fileID: 12800000, guid: 758ffbb8d01bcd94e8dfa6c1310da7e0, type: 3}
+  - {fileID: 12800000, guid: 75c4416b8bfdf8e4098bb77ecaa3f5ef, type: 3}
+  - {fileID: 12800000, guid: 02e2daadc5c06a1428d29fa5878a0e8a, type: 3}
+  - {fileID: 12800000, guid: 0943800e21e7f094b82c0aedc5b5741f, type: 3}
+  - {fileID: 12800000, guid: 3faf021e454f27440bdbbb7955af8389, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

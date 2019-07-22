@@ -1,0 +1,15 @@
+<settings>
+  <Camera_settings>
+    <cameraDistance>-2.4</cameraDistance>
+    <cameraAltitude>0.8</cameraAltitude>
+  </Camera_settings>
+  <Main_settings>
+    <baseSpeed_Space_INT>0.45</baseSpeed_Space_INT>
+    <flexionSpeed_Space_INT>1.2</flexionSpeed_Space_INT>
+  </Main_settings>
+  <Scenario_settings>
+    <start_Space_INT_Duration>5</start_Space_INT_Duration>
+    <projectUser_Space_INT_Duration>5</projectUser_Space_INT_Duration>
+    <navigation_Space_INT_Duration>2000</navigation_Space_INT_Duration>
+  </Scenario_settings>
+</settings>

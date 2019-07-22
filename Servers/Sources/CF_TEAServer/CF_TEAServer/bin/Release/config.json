@@ -1,0 +1,14 @@
+{
+  "comPort": 3,
+  "tcpPort": 1408,
+  "carryingWaveFrequency": 37,
+  "mapping": [
+    "ECG",
+    "MOTION 1",
+    "MOTION 2",
+    "EMG 1",
+    "EMG 2",
+    "RESP"
+  ]
+
+}

@@ -1,0 +1,17 @@
+
+Intégrer la commande wiiboard dans la version spatiale-forêt, ainsi que dans l'ancienne version démo de la visite de l'ISS
+
+X Supprimer le tangage de l’image dès le redressement de l’image provenant de la Kinect dans la scène « dialogue » 
+
+X Faire un nouvelle version démo de l’Avatar volant sans les attentes induits par le protocoles implantés par Charles (mais peut être qu’une version ancienne de même type existe, à vérifier et brancher en menu)
+
+X Rendre débrayage par menu ou par détection de présence des capteurs l’affichage des courbes pour les démos avec le portable d’Amato, (il y’en a une de prévue le 10 avril)
+
+X Voir en plan B s’il existe une solution soft pour produire une macinima.
+
+Intégrer la version finalisée par Yann de la forêt, vérifier et effectuer les derniers réglages de la course et des changements de direction de l’avatar.
+
+Intégrer la version sonorisé de Geoffrey ainsi que la voix off sous le tour de son avatar.
+
+Une fois stabilisée et validée, dédoubler la version spatial-forêt et créer une version 2 avec l’avatar d’Amato avec accès menu.
+

@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - RightTrigger
+  - LeftTrigger
+  - Meteor
+  - GlobalTrigger
+  - Canyon
+  - Head
+  - Camera_visible
+  - CharacterManager
+  - Attitude
+  - AttitudeNeedle
+  - Altitude
+  - Speed
+  - CompassNeedle
+  - CubeMan
+  - DataManager
+  - ContextualLayer
+  - TrackerImage
+  - TrackingPanel
+  - MeteorSpeed
+  - Avatars
+  - Ruler
+  - UserHeight
+  - HeightBlock
+  - CollisionTexts
+  - CollisionLayer
+  - DistanceCameraAvatar
+  - FOV
+  - CameraRay
+  - CanyonWidth
+  - Terrain
+  - UpFOV
+  - BottomFOV
+  - NearClipPlane
+  - FarClipPlane
+  - HUD
+  - CanyonTracker
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - RigKinect
+  - Avatar3D
+  - UserVideo
+  - Environment
+  - CharacterManager
+  - Camera
+  - Sky
+  - Collision
+  - Meteor
+  - Terrain
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Vector
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
