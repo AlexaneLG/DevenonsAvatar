@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Globalization;
 
 public class DataManager : MonoBehaviour
 {
@@ -208,6 +209,16 @@ public class DataManager : MonoBehaviour
         return data / 3;
     }
 
+    public string changeFloatFormat(float f)
+    {
+        /*Debug.Log(f.ToString("0.0"));
+        Debug.Log(f.ToString("N1", CultureInfo.CreateSpecificCulture("sv-SE")));*/
+
+        float f2 = 149996.173165f;
+        Debug.Log(f2.ToString("N1", CultureInfo.CreateSpecificCulture("fr-FR")));
+        return f.ToString("0,0");
+    }
+
     #region AvatarHeight
 
     public void SetAvatarHeight()
@@ -259,10 +270,12 @@ public class DataManager : MonoBehaviour
         return length;
     }
 
+    #endregion
+
     public void DisplayHUD(bool display)
     {
         HUD.SetActive(display);
     }
 
-    #endregion
+
 }

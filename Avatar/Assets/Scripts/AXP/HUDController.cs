@@ -115,6 +115,11 @@ public class HUDController : MonoBehaviour
             compassImage.transform.rotation.x,
             compassImage.transform.rotation.y,
             _rotationValue);
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            dataManager.changeFloatFormat(_altitudeValue);
+        }
     }
 
     private void FixedUpdate()
