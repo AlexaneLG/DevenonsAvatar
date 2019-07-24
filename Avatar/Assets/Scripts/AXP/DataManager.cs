@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
+using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class DataManager : MonoBehaviour
     public bool isKinectActive;
 
     private float _altitude;
+    public float maxAltitude;
+    public float minAltitude;
     private float _startAltitude;
     private float _attitude; // assiette
     private float _speed;
@@ -163,6 +166,19 @@ public class DataManager : MonoBehaviour
         {
             HUD = GameObject.FindGameObjectWithTag("HUD");
         }
+
+        // Set min and max altitudes
+        maxAltitude = characterManager.GetComponent<ArmController>().maxAltitude - 20;
+        minAltitude = characterManager.GetComponent<ArmController>().minAltitude - _startAltitude - 5;
+        if (GameObject.Find("Text-MaxAltitude-Value") != null)
+        {
+            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = maxAltitude.ToString();
+        }
+        if (GameObject.Find("Text-MinAltitude-Value") != null)
+        {
+            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = minAltitude.ToString();
+        }
+
         isKinectActive = (KinectManager.Instance != null) ? true : false;
         DisplayHUD(false); // hide HUD
     }
@@ -215,7 +231,7 @@ public class DataManager : MonoBehaviour
         Debug.Log(f.ToString("N1", CultureInfo.CreateSpecificCulture("sv-SE")));*/
 
         float f2 = 149996.173165f;
-        Debug.Log(f2.ToString("N1", CultureInfo.CreateSpecificCulture("fr-FR")));
+        Debug.Log(f2.ToString("N0", CultureInfo.CreateSpecificCulture("fr-FR")));
         return f.ToString("0,0");
     }
 
@@ -233,6 +249,7 @@ public class DataManager : MonoBehaviour
         joints.Add(cubeMan.GetComponent<CubemanController>().Hip_Left);
         joints.Add(cubeMan.GetComponent<CubemanController>().Knee_Left);
         joints.Add(cubeMan.GetComponent<CubemanController>().Ankle_Left);
+        joints.Add(cubeMan.GetComponent<CubemanController>().Foot_Left);
 
         float height = Length(joints);
         _heightSamples.Add(height);
