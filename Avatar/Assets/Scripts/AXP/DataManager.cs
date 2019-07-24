@@ -170,14 +170,6 @@ public class DataManager : MonoBehaviour
         // Set min and max altitudes
         maxAltitude = characterManager.GetComponent<ArmController>().maxAltitude - 20;
         minAltitude = characterManager.GetComponent<ArmController>().minAltitude - _startAltitude - 5;
-        if (GameObject.Find("Text-MaxAltitude-Value") != null)
-        {
-            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = maxAltitude.ToString();
-        }
-        if (GameObject.Find("Text-MinAltitude-Value") != null)
-        {
-            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = minAltitude.ToString();
-        }
 
         isKinectActive = (KinectManager.Instance != null) ? true : false;
         DisplayHUD(false); // hide HUD

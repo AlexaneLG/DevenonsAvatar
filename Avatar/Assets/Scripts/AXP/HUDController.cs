@@ -81,6 +81,7 @@ public class HUDController : MonoBehaviour
         {
             upFOVText = GameObject.FindGameObjectWithTag("UpFOV");
         }
+
     }
 
     // Use this for initialization
@@ -226,6 +227,16 @@ public class HUDController : MonoBehaviour
 
     private IEnumerator DisplayDatas()
     {
+        // Set min/max altitudes
+        if (GameObject.Find("Text-MaxAltitude-Value") != null)
+        {
+            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = dataManager.maxAltitude.ToString() + " m";
+        }
+        if (GameObject.Find("Text-MinAltitude-Value") != null)
+        {
+            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = dataManager.minAltitude.ToString() + " m";
+        }
+
         while (true)
         {
             // Display avatar's speed

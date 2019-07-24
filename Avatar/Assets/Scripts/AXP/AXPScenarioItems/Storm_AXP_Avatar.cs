@@ -17,6 +17,8 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
     private int _currentMeteor;
     List<GameObject> _meteorList;
 
+    private Vector2 _newTrackerPos;
+
     // Use this for initialization
     protected override void Start()
     {
@@ -53,11 +55,16 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
         _currentMeteor = 0;
 
         _meteorList = dataManager.CurrentScenarioItem.GetComponent<Storm_Avatar>().meteorList;
+
+        _newTrackerPos = new Vector2();
     }
 
     private void FixedUpdate()
     {
-        DisplayCurrentMeteorSpeed();
+        if (pointerImage.enabled)
+        {
+            DisplayCurrentMeteorSpeed();
+        }
     }
 
     // Update is called once per frame
@@ -65,24 +72,33 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
     {
         base.Update();
 
+        if (meteor != null)
+        {
+            Vector3 screenPos = mainCamera.WorldToScreenPoint(meteor.transform.position);
+            _newTrackerPos = new Vector2(screenPos.x - panel.GetComponent<RectTransform>().rect.width, screenPos.y);
+        }
+
         if (meteor == null
             || mainCamera.transform.InverseTransformPoint(meteor.transform.position).z < -100f // same condition in Storm_Avatar
-            || pointerImage.GetComponent<RectTransform>().anchoredPosition.y > panel.GetComponent<RectTransform>().rect.height - offset
-            || pointerImage.GetComponent<RectTransform>().anchoredPosition.y < 0 + offset
-            || pointerImage.GetComponent<RectTransform>().anchoredPosition.x > panel.GetComponent<RectTransform>().rect.width - offset
-            || pointerImage.GetComponent<RectTransform>().anchoredPosition.x < 0 + offset)
+            || _newTrackerPos.y > panel.GetComponent<RectTransform>().rect.height - offset
+            || _newTrackerPos.y < 0 + offset
+            || _newTrackerPos.x > panel.GetComponent<RectTransform>().rect.width - offset
+            || _newTrackerPos.x < 0 + offset
+            )
         {
+            pointerImage.transform.GetChild(0).gameObject.SetActive(false);
             pointerImage.enabled = false;
+
             pointerImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset + 1, offset + 1);
             meteor = GetNextMeteor();
         }
         else
         {
-            Vector3 screenPos = mainCamera.WorldToScreenPoint(meteor.transform.position);
-            pointerImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(screenPos.x - panel.GetComponent<RectTransform>().rect.width, screenPos.y);
+            pointerImage.GetComponent<RectTransform>().anchoredPosition = _newTrackerPos;
 
             if (!pointerImage.enabled)
             {
+                pointerImage.transform.GetChild(0).gameObject.SetActive(true);
                 pointerImage.enabled = true;
             }
         }
