@@ -203,6 +203,11 @@ public class DataManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("ContextualLayer").GetComponent<ContextualUIController>().CanDisplay = true;
     }
 
+    public float scaleData(float data)
+    {
+        return data / 3;
+    }
+
     #region AvatarHeight
 
     public void SetAvatarHeight()

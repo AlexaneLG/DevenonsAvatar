@@ -35,7 +35,7 @@ public class TakeOff_AXP_Avatar : AugmentedScenarioItem
         }
 
         transform.GetChild(0).gameObject.SetActive(true); // Display text
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
 
     }
 

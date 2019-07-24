@@ -86,7 +86,7 @@ public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
     {
         bubble.gameObject.SetActive(true);
         texts.GetChild(index).gameObject.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         texts.GetChild(index).gameObject.SetActive(false);
         bubble.gameObject.SetActive(false);
     }

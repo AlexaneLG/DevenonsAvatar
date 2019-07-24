@@ -64,7 +64,7 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
     protected override void Update()
     {
         base.Update();
-        
+
         if (meteor == null
             || mainCamera.transform.InverseTransformPoint(meteor.transform.position).z < -100f // same condition in Storm_Avatar
             || pointerImage.GetComponent<RectTransform>().anchoredPosition.y > panel.GetComponent<RectTransform>().rect.height - offset
@@ -73,7 +73,7 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
             || pointerImage.GetComponent<RectTransform>().anchoredPosition.x < 0 + offset)
         {
             pointerImage.enabled = false;
-            pointerImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset+1, offset+1);
+            pointerImage.GetComponent<RectTransform>().anchoredPosition = new Vector2(offset + 1, offset + 1);
             meteor = GetNextMeteor();
         }
         else
@@ -109,11 +109,11 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
     public override IEnumerator DisplayScenarioItem()
     {
         unknownObjectBubble.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         unknownObjectBubble.gameObject.SetActive(false);
 
         meteorRainBubble.gameObject.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         meteorRainBubble.gameObject.SetActive(false);
     }
 }

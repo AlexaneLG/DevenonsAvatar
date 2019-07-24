@@ -27,7 +27,7 @@ public class Dive_AXP_Avatar : AugmentedScenarioItem
     public override IEnumerator DisplayScenarioItem()
     {
         transform.GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
