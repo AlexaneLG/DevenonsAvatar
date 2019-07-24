@@ -171,7 +171,9 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         int frame = 0;
         int frames = 60 * 4; // 4 seconds
         float offsetY = 0;
-        float maxY = 1000;
+        float maxY = 825;
+        float minX = 550;
+        float maxX = 1380;
         Transform canyonRef = GameObject.Find("CanyonScreenPos").transform;
         if (canyonRef == null)
         {
@@ -182,11 +184,19 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         {
             ++frame;
             Vector3 screenPos = mainCamera.WorldToScreenPoint(canyonRef.position);
+            float posX = canyonTracker.GetComponent<RectTransform>().anchoredPosition.x;
+            float posY = canyonTracker.GetComponent<RectTransform>().anchoredPosition.y;
             //Debug.Log(canyonRef.name + " screenPos.y : " + screenPos.y);
             if (screenPos.y < maxY)
             {
-                canyonTracker.GetComponent<RectTransform>().anchoredPosition = new Vector2(screenPos.x - width, screenPos.y);
+                posY = screenPos.y;
             }
+            if (screenPos.x - width > minX && screenPos.x - width < maxX)
+            {
+                posX = screenPos.x - width;
+            }
+
+            canyonTracker.GetComponent<RectTransform>().anchoredPosition = new Vector2(posX, posY);
             yield return null;
         }
     }

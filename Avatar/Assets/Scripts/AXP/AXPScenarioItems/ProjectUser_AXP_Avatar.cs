@@ -13,7 +13,7 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
     override protected void Awake()
     {
         //durationIncr = 40;
-        durationIncr = 40;
+        durationIncr = 15;
         base.Awake();
     }
 
@@ -41,6 +41,10 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
             }
 
             StartCoroutine(DisplayHeight());
+        }
+        else
+        {
+            durationIncr = 0;
         }
 
         base.Start();
