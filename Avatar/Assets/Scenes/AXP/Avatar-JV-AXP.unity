@@ -24817,6 +24817,86 @@ Prefab:
       propertyPath: RotationModule.curve.minScalar
       value: 3.4907
       objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
     - {fileID: 8200000, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
@@ -35474,6 +35554,21 @@ Prefab:
     - target: {fileID: 1322220909443852, guid: 8ac3b8d99e3b4514abaa3f8e0fc7ff27, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114251277035059786, guid: 8ac3b8d99e3b4514abaa3f8e0fc7ff27,
+        type: 2}
+      propertyPath: m_Text
+      value: km/h
+      objectReference: {fileID: 0}
+    - target: {fileID: 114786654254584548, guid: 8ac3b8d99e3b4514abaa3f8e0fc7ff27,
+        type: 2}
+      propertyPath: m_Text
+      value: km/h
+      objectReference: {fileID: 0}
+    - target: {fileID: 224966965696757534, guid: 8ac3b8d99e3b4514abaa3f8e0fc7ff27,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ac3b8d99e3b4514abaa3f8e0fc7ff27, type: 2}

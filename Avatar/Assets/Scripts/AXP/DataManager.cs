@@ -219,12 +219,7 @@ public class DataManager : MonoBehaviour
 
     public string changeFloatFormat(float f)
     {
-        /*Debug.Log(f.ToString("0.0"));
-        Debug.Log(f.ToString("N1", CultureInfo.CreateSpecificCulture("sv-SE")));*/
-
-        float f2 = 149996.173165f;
-        Debug.Log(f2.ToString("N0", CultureInfo.CreateSpecificCulture("fr-FR")));
-        return f.ToString("0,0");
+        return f.ToString("N0", CultureInfo.CreateSpecificCulture("fr-FR"));
     }
 
     #region AvatarHeight
