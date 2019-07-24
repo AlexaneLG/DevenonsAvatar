@@ -148,7 +148,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         do
         {
             _distanceCameraAvatarValue = GetDistanceCameraAvatar();
-            distanceCameraAvatarText.GetComponent<Text>().text = _distanceCameraAvatarValue.ToString();
+            distanceCameraAvatarText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_distanceCameraAvatarValue));
             --frames;
             yield return null;
         } while (frames > 0);

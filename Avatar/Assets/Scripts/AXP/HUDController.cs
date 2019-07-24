@@ -109,18 +109,13 @@ public class HUDController : MonoBehaviour
             _attitudeValue * (-1));
         // Update altitude
         _altitudeValue = Mathf.Round(dataManager.Altitude);
-        altitudeText.GetComponent<Text>().text = _altitudeValue.ToString();
+        altitudeText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_altitudeValue));
         // Update rotation
         _rotationValue = dataManager.LocalRotation;
         compassImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
             compassImage.transform.rotation.x,
             compassImage.transform.rotation.y,
             _rotationValue);
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            dataManager.changeFloatFormat(_altitudeValue);
-        }
     }
 
     private void FixedUpdate()
@@ -230,18 +225,18 @@ public class HUDController : MonoBehaviour
         // Set min/max altitudes
         if (GameObject.Find("Text-MaxAltitude-Value") != null)
         {
-            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = dataManager.maxAltitude.ToString() + " m";
+            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(dataManager.maxAltitude)) + " m";
         }
         if (GameObject.Find("Text-MinAltitude-Value") != null)
         {
-            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = dataManager.minAltitude.ToString() + " m";
+            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(dataManager.minAltitude)) + " m";
         }
 
         while (true)
         {
             // Display avatar's speed
             _speedValue = GetAvatarSpeed();
-            speedText.GetComponent<Text>().text = _speedValue.ToString();
+            speedText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_speedValue));
             yield return new WaitForSeconds(0.4f);
         }
     }

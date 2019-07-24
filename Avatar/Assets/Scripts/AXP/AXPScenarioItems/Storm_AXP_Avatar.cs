@@ -119,7 +119,7 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
 
     private void DisplayCurrentMeteorSpeed()
     {
-        GameObject.FindGameObjectWithTag("MeteorSpeed").GetComponent<Text>().text = Mathf.Round(GetCurrentMeteorSpeed()).ToString();
+        GameObject.FindGameObjectWithTag("MeteorSpeed").GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(Mathf.Round(GetCurrentMeteorSpeed())));
     }
 
     public override IEnumerator DisplayScenarioItem()
