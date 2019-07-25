@@ -7,6 +7,8 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
 {
 
     private Transform _canyon;
+    private GameObject _canyonMesh;
+    private float _canyonHeight;
     private Canyon_Avatar _canyonAvatarComponent;
     private float _distanceCameraAvatarValue;
 
@@ -14,10 +16,31 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
     public Camera mainCamera;
     public GameObject canyonTracker;
     public GameObject panel;
+    public Transform canyonHeightUI;
 
     protected override void Awake()
     {
         //durationIncr = 4;
+
+        // Get gameobjects tagged canyon
+        GameObject[] canyons = GameObject.FindGameObjectsWithTag("Canyon");
+        foreach (GameObject canyon in canyons)
+        {
+            if (canyon.GetComponent<MeshCollider>() != null)
+            {
+                _canyonMesh = canyon;
+            }
+            else
+            {
+                _canyon = canyon.transform;
+            }
+        }
+
+        if (GameObject.Find("CanyonHeight") != null)
+        {
+            canyonHeightUI = GameObject.Find("CanyonHeight").transform;
+            canyonHeightUI.gameObject.SetActive(false);
+        }
 
         base.Awake();
     }
@@ -38,7 +61,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         }
 
         // Get gameobjects tagged canyon
-        GameObject[] canyons = GameObject.FindGameObjectsWithTag("Canyon");
+        /*GameObject[] canyons = GameObject.FindGameObjectsWithTag("Canyon");
 
         if (canyons.Length > 1)
         {
@@ -47,11 +70,20 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         else
         {
             _canyon = canyons[0].transform;
-        }
+        }*/
 
         _canyonAvatarComponent = _canyon.parent.GetComponent<Canyon_Avatar>();
+        _canyonHeight = dataManager.scaleData(_canyonMesh.GetComponent<MeshCollider>().bounds.size.y);
+        dataManager.CanyonHeight = _canyonHeight;
+        Debug.Log("Canyon height : " + _canyonHeight);
+
+
+
+
 
         base.Start();
+
+
     }
 
     // Update is called once per frame
@@ -79,6 +111,8 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         displayChild(2, true); // display "constraint" bubble
         yield return new WaitForSeconds(4);
         displayChild(2, false);
+
+        StartCoroutine(DisplayCanyonHeight());
 
         yield return StartCoroutine(DisplayCameraAvatarDistance());
     }
@@ -148,7 +182,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         do
         {
             _distanceCameraAvatarValue = GetDistanceCameraAvatar();
-            distanceCameraAvatarText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_distanceCameraAvatarValue));
+            distanceCameraAvatarText.GetComponent<Text>().text = dataManager.changeFloatFormatOneDecimal(dataManager.scaleData(_distanceCameraAvatarValue));
             --frames;
             yield return null;
         } while (frames > 0);
@@ -169,9 +203,9 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         float width = panel.GetComponent<RectTransform>().rect.width;
 
         int frame = 0;
-        int frames = 60 * 4; // 4 seconds
+        int frames = 60 * 3; // 3 seconds
         float offsetY = 0;
-        float maxY = 825;
+        float maxY = 950;
         float minX = 550;
         float maxX = 1380;
         Transform canyonRef = GameObject.Find("CanyonScreenPos").transform;
@@ -199,5 +233,33 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
             canyonTracker.GetComponent<RectTransform>().anchoredPosition = new Vector2(posX, posY);
             yield return null;
         }
+    }
+
+    private IEnumerator DisplayCanyonHeight()
+    {
+        canyonHeightUI.gameObject.SetActive(true);
+
+        if (GameObject.FindGameObjectWithTag("CanyonHeight") != null)
+        {
+            GameObject.FindGameObjectWithTag("CanyonHeight").GetComponent<Text>().text = dataManager.changeFloatFormat(_canyonHeight);
+        }
+
+        Vector3 screenOffset = new Vector3(2880, 1000, 0);
+
+        int frame = 0;
+        int frames = 60 * 20; // 20 seconds
+
+        while (frame < frames)
+        {
+            ++frame;
+            canyonHeightUI.LookAt(mainCamera.transform);
+
+            Vector3 worldScreenOffset = mainCamera.ScreenToWorldPoint(screenOffset);
+            canyonHeightUI.position = new Vector3(canyonHeightUI.position.x, worldScreenOffset.y, canyonHeightUI.position.z);
+
+            yield return null;
+        }
+
+        canyonHeightUI.gameObject.SetActive(false);
     }
 }

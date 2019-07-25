@@ -29,7 +29,20 @@ public class DataManager : MonoBehaviour
     private float _avatarHeight;
     private List<float> _heightSamples = new List<float>();
     private int _i;
+    private float _canyonHeight;
 
+    public float CanyonHeight
+    {
+        get
+        {
+            return _canyonHeight;
+        }
+
+        set
+        {
+            _canyonHeight = value;
+        }
+    }
 
     public float Altitude
     {
@@ -182,26 +195,6 @@ public class DataManager : MonoBehaviour
         _attitude = characterController.direction;
         _altitude = (characterController.transform.position.y - _startAltitude);
         _rotation = characterController.transform.rotation.eulerAngles.y;
-
-        /*if (Input.GetKeyDown(KeyCode.H))
-        {
-            if (_i < 10)
-            {
-                SetAvatarHeight();
-                ++ _i;
-            }
-            if(_i > 5)
-            {
-                Debug.Log("Mean height : " + GetMean(_heightSamples));
-                _i = 0;
-            }
-            
-        }*/
-
-        /*if (Input.GetKeyDown(KeyCode.S))
-        {
-            Debug.Log("Constant speed : " + _speed + "; Velocity : " + Mathf.Round(Vector3.Magnitude(avatarsController.GetComponent<Rigidbody>().velocity)));
-        }*/
     }
 
     public void SetScenarioItemOnChange(ScenarioItem item, int index)
@@ -220,6 +213,11 @@ public class DataManager : MonoBehaviour
     public string changeFloatFormat(float f)
     {
         return f.ToString("N0", CultureInfo.CreateSpecificCulture("fr-FR"));
+    }
+
+    public string changeFloatFormatOneDecimal(float f)
+    {
+        return f.ToString("N1", CultureInfo.CreateSpecificCulture("fr-FR"));
     }
 
     #region AvatarHeight
