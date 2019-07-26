@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
 {
@@ -15,10 +16,12 @@ public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
 
     public Transform texts;
     public Transform bubble;
+    public GameObject[] bubbles;
 
     protected override void Awake()
     {
         //durationIncr = 4;
+        bubbles = GameObject.FindGameObjectsWithTag("BubbleUserAvatar");
 
         base.Awake();
     }
@@ -45,6 +48,11 @@ public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
             texts.GetChild(i).gameObject.SetActive(false);
         }
 
+        foreach (GameObject bubble in bubbles)
+        {
+            bubble.SetActive(false);
+        }
+
         base.Start();
     }
 
@@ -57,6 +65,31 @@ public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
     }
 
     public override IEnumerator DisplayScenarioItem()
+    {
+        StartCoroutine(DisplayAltitudes());
+
+        yield return new WaitForSeconds(6f); // wait for dive bubble to end
+        yield return new WaitForSeconds(4f);
+        if (bubbles.Length > 0)
+        {
+            foreach (GameObject bubble in bubbles)
+            {
+                yield return StartCoroutine(DisplayBubble(bubble));
+                yield return new WaitForSeconds(4f);
+            }
+        }
+
+        yield return null;
+    }
+
+    private IEnumerator DisplayBubble(GameObject bubble)
+    {
+        bubble.SetActive(true);
+        yield return new WaitForSeconds(7f);
+        bubble.SetActive(false);
+    }
+
+    private IEnumerator DisplayAltitudes()
     {
         while (_hasReachedHighestAltitude == false || _hasReachedLowestAltitude == false)
         {
@@ -84,10 +117,43 @@ public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
 
     private IEnumerator DisplayText(int index)
     {
+        Color greenColor = new Color(0, 1, 0, 1);
+        Color whiteColor = new Color(1, 1, 1, 1);
+        GameObject tmp = new GameObject();
+        Text hudText = tmp.AddComponent<Text>();
+        if (index == 0)
+        {
+            if (GameObject.Find("Text-MinAltitude-Value"))
+            {
+                hudText = GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>();
+            }
+        }
+        else
+        {
+            if (GameObject.Find("Text-MaxAltitude-Value"))
+            {
+                hudText = GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>();
+            }
+        }
+
+        Text altitudeValueText = hudText;
+        Text altitudeUnitText = hudText;
+        if (GameObject.Find("Text-Altitude-Value") && GameObject.Find("Text-Altitude-Unit"))
+        {
+            altitudeValueText = GameObject.Find("Text-Altitude-Value").GetComponent<Text>();
+            altitudeUnitText = GameObject.Find("Text-Altitude-Unit").GetComponent<Text>();
+        }
+
         bubble.gameObject.SetActive(true);
         texts.GetChild(index).gameObject.SetActive(true);
+        hudText.color = greenColor;
+        altitudeValueText.color = greenColor;
+        altitudeUnitText.color = greenColor;
         yield return new WaitForSeconds(5);
         texts.GetChild(index).gameObject.SetActive(false);
         bubble.gameObject.SetActive(false);
+        hudText.color = whiteColor;
+        altitudeValueText.color = whiteColor;
+        altitudeUnitText.color = whiteColor;
     }
 }

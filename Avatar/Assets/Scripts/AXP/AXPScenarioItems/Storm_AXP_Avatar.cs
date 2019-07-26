@@ -114,7 +114,11 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
 
     public float GetCurrentMeteorSpeed()
     {
-        return Vector3.Magnitude(_meteorList[_currentMeteor].GetComponent<Rigidbody>().velocity);
+        if (_meteorList[_currentMeteor] != null)
+        {
+            return Vector3.Magnitude(_meteorList[_currentMeteor].GetComponent<Rigidbody>().velocity);
+        }
+        return 0f;
     }
 
     private void DisplayCurrentMeteorSpeed()

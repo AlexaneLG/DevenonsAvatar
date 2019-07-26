@@ -225,11 +225,11 @@ public class HUDController : MonoBehaviour
         // Set min/max altitudes
         if (GameObject.Find("Text-MaxAltitude-Value") != null)
         {
-            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(dataManager.maxAltitude)) + " m";
+            GameObject.Find("Text-MaxAltitude-Value").GetComponent<Text>().text = "Max: " + dataManager.changeFloatFormat(dataManager.scaleData(dataManager.maxAltitude)) + " m";
         }
         if (GameObject.Find("Text-MinAltitude-Value") != null)
         {
-            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(dataManager.minAltitude)) + " m";
+            GameObject.Find("Text-MinAltitude-Value").GetComponent<Text>().text = "Min:  " + dataManager.changeFloatFormat(dataManager.scaleData(dataManager.minAltitude)) + " m";
         }
 
         while (true)

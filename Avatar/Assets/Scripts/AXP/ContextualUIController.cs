@@ -53,7 +53,7 @@ public class ContextualUIController : MonoBehaviour
             {
                 case 0:
                     // Start_Avatar : Environnement_Avatar
-                    //DisplayLayer(0, true);
+                    DisplayLayer(0, true);
                     break;
                 case 1:
                     // ProjectUser_Avatar
@@ -78,11 +78,12 @@ public class ContextualUIController : MonoBehaviour
                 case 5:
                     // Canyon_Avatar
                     DisplayLayer(3, false);
-                    DisplayLayer(4, false);
+
                     DisplayLayer(5, true);
                     break;
                 case 6:
                     // FreeFly_Avatar_2
+                    DisplayLayer(4, false);
                     DisplayLayer(5, false);
                     break;
                 case 7:

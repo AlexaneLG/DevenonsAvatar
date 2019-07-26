@@ -41,6 +41,7 @@ TagManager:
   - HUD
   - CanyonTracker
   - CanyonHeight
+  - BubbleUserAvatar
   layers:
   - Default
   - TransparentFX
