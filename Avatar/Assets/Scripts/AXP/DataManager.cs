@@ -13,6 +13,7 @@ public class DataManager : MonoBehaviour
     public CollisionManager collisionManager;
     public GameObject cubeMan;
     public GameObject HUD;
+    public Camera mainCamera;
 
     private ScenarioItem _currentScenarioItem;
     private int _currentScenarioItemIdx;
@@ -141,6 +142,7 @@ public class DataManager : MonoBehaviour
     private void Awake()
     {
         isKinectActive = (KinectManager.Instance != null) ? true : false;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Use this for initialization

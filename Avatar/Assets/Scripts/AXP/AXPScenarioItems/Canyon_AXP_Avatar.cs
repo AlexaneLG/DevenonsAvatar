@@ -80,7 +80,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         Debug.Log("Canyon height : " + _canyonHeight);
 
 
-        AddNewPoint();
+        //AddNewPoint();
 
 
         base.Start();

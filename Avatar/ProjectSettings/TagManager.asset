@@ -42,6 +42,10 @@ TagManager:
   - CanyonTracker
   - CanyonHeight
   - BubbleUserAvatar
+  - AvatarGameBox
+  - AvatarGameLeftHand
+  - AvatarGameRightHand
+  - BonusBubble
   layers:
   - Default
   - TransparentFX

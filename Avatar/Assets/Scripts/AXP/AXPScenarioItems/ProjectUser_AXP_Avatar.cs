@@ -13,15 +13,13 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
     override protected void Awake()
     {
         //durationIncr = 40;
-        durationIncr = 15;
+        durationIncr = 10;
         base.Awake();
     }
 
     // Use this for initialization
     override protected void Start()
     {
-        //gameObject.GetComponent<Animator>().speed = 0;
-
         transform.Find("RulerParent").gameObject.SetActive(false);
 
         if (dataManager != null && dataManager.isKinectActive)
