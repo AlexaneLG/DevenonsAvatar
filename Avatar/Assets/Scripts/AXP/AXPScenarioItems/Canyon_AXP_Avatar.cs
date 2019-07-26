@@ -18,6 +18,8 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
     public GameObject panel;
     public Transform canyonHeightUI;
 
+    public UnityEngine.UI.Extensions.UILineRenderer LineRenderer;
+
     protected override void Awake()
     {
         //durationIncr = 4;
@@ -78,7 +80,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         Debug.Log("Canyon height : " + _canyonHeight);
 
 
-
+        AddNewPoint();
 
 
         base.Start();
@@ -261,5 +263,13 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         }
 
         canyonHeightUI.gameObject.SetActive(false);
+    }
+
+    public void AddNewPoint()
+    {
+        var point = new Vector2(1, 1);
+        var pointlist = new List<Vector2>(LineRenderer.Points);
+        pointlist.Add(point);
+        LineRenderer.Points = pointlist.ToArray();
     }
 }

@@ -492,6 +492,11 @@
     <Compile Include="Assets\Uniduino\Scripts\Arduino.Firmata.cs" />
     <Compile Include="Assets\Uniduino\Scripts\Arduino.cs" />
     <Compile Include="Assets\Uniduino\Scripts\UniduinoSetup.cs" />
+    <Compile Include="Assets\unity-ui-extensions\Scripts\Primitives\UILineRenderer.cs" />
+    <Compile Include="Assets\unity-ui-extensions\Scripts\Primitives\UIPrimitiveBase.cs" />
+    <Compile Include="Assets\unity-ui-extensions\Scripts\Utilities\BezierPath.cs" />
+    <Compile Include="Assets\unity-ui-extensions\Scripts\Utilities\CableCurve.cs" />
+    <Compile Include="Assets\unity-ui-extensions\Scripts\Utilities\SetPropertyUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AVProWindowsMedia\Demos\MaterialMappingDemo\Projector Additive.shader" />
