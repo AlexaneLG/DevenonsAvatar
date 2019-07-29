@@ -384,6 +384,7 @@
     <Compile Include="Assets\Scripts\AXP\DataManager.cs" />
     <Compile Include="Assets\Scripts\AXP\DistanceArrow.cs" />
     <Compile Include="Assets\Scripts\AXP\HUDController.cs" />
+    <Compile Include="Assets\Scripts\AXP\TouchBubble.cs" />
     <Compile Include="Assets\Scripts\Audio\Instructions\AudioInstructionManager.cs" />
     <Compile Include="Assets\Scripts\AvatarFlightController.cs" />
     <Compile Include="Assets\Scripts\BlackMagic\BlackMagic.cs" />
