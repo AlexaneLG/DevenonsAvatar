@@ -15,14 +15,6 @@ public class KinectSensorDataCollection : SensorDataCollection {
     public SensorGeneric<float> shouldersLateralRotation = new SensorGeneric<float>("shouldersLateralRotation");
     public SensorGeneric<float> hipRotation = new SensorGeneric<float>("hipRotation");
 
-    // BIM required datas
-    public SensorGeneric<float> hand_Left_X = new SensorGeneric<float>("hand_Left_X");
-    public SensorGeneric<float> hand_Left_Y = new SensorGeneric<float>("hand_Left_Y");
-    public SensorGeneric<float> hand_Right_X = new SensorGeneric<float>("hand_Right_X");
-    public SensorGeneric<float> hand_Right_Y = new SensorGeneric<float>("hand_Right_Y");
-    public SensorGeneric<float> shoulder_center_X = new SensorGeneric<float>("hip_center_X");
-    public SensorGeneric<float> shoulder_center_Y = new SensorGeneric<float>("hip_center_Y");
-
     public KinectSensorDataCollection()
         : base("Kinect")
     {
@@ -41,13 +33,5 @@ public class KinectSensorDataCollection : SensorDataCollection {
         AddSensor(shouldersLateralRotation);
 
         AddSensor(hipRotation);
-
-        // BIM
-        AddSensor(hand_Left_X);
-        AddSensor(hand_Left_Y);
-        AddSensor(hand_Right_X);
-        AddSensor(hand_Right_Y);
-        AddSensor(shoulder_center_X);
-        AddSensor(shoulder_center_Y);
     }
 }

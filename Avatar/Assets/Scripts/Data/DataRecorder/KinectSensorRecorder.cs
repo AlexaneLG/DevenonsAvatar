@@ -11,11 +11,6 @@ public class KinectSensorRecorder : MonoBehaviour {
     public int arm_Forearm_R, arm_Forearm_L, arm_Torso_R, arm_Torso_L, thigh_Calf_R, thigh_Calf_L, torso_Tighs;
     public int shouldersVerticalRotation, shouldersLateralRotation, hipRotation;
 
-    // BIM required datas
-    public Transform handLeft, handRight, shoulderCenter;
-    public float hand_Left_X, hand_Left_Y, hand_Right_X, hand_Right_Y, shoulder_center_X, shoulder_center_Y;
-    bool recordBIMData = true;
-
     void FixedUpdate()
     {
         KinectManager manager = KinectManager.Instance;
@@ -50,17 +45,6 @@ public class KinectSensorRecorder : MonoBehaviour {
             shouldersLateralRotation = (int)shoulderSpine.localEulerAngles.z;
             hipRotation = (int)hipCenter.localEulerAngles.y;
 
-            if (recordBIMData)
-            {
-                // BIM
-                hand_Left_X = handLeft.position.x;
-                hand_Left_Y = handLeft.position.y;
-                hand_Right_X = handRight.position.x;
-                hand_Right_Y = handRight.position.y;
-                shoulder_center_X = shoulderCenter.position.x;
-                shoulder_center_Y = shoulderCenter.position.y;
-            }
-
             if (SensorRecorderManager.startRecordingSensorData)
             {
                 dataCollection.arm_Forearm_R.AddRecordedValue(arm_Forearm_R);
@@ -74,17 +58,6 @@ public class KinectSensorRecorder : MonoBehaviour {
                 dataCollection.shouldersVerticalRotation.AddRecordedValue(shouldersVerticalRotation);
                 dataCollection.shouldersLateralRotation.AddRecordedValue(shouldersLateralRotation);
                 dataCollection.hipRotation.AddRecordedValue(hipRotation);
-
-                if (recordBIMData)
-                {
-                    // BIM
-                    dataCollection.hand_Left_X.AddRecordedValue(hand_Left_X);
-                    dataCollection.hand_Left_Y.AddRecordedValue(hand_Left_Y);
-                    dataCollection.hand_Right_X.AddRecordedValue(hand_Right_X);
-                    dataCollection.hand_Right_Y.AddRecordedValue(hand_Right_Y);
-                    dataCollection.shoulder_center_X.AddRecordedValue(shoulder_center_X);
-                    dataCollection.shoulder_center_Y.AddRecordedValue(shoulder_center_Y);
-                }
             } 
         }
         else
@@ -102,17 +75,6 @@ public class KinectSensorRecorder : MonoBehaviour {
                 dataCollection.shouldersVerticalRotation.AddRecordedValue(0);
                 dataCollection.shouldersLateralRotation.AddRecordedValue(0);
                 dataCollection.hipRotation.AddRecordedValue(0);
-
-                if (recordBIMData)
-                {
-                    // BIM
-                    dataCollection.hand_Left_X.AddRecordedValue(0);
-                    dataCollection.hand_Left_Y.AddRecordedValue(0);
-                    dataCollection.hand_Right_X.AddRecordedValue(0);
-                    dataCollection.hand_Right_Y.AddRecordedValue(0);
-                    dataCollection.shoulder_center_X.AddRecordedValue(0);
-                    dataCollection.shoulder_center_Y.AddRecordedValue(0);
-                }
             }
         }
     }
