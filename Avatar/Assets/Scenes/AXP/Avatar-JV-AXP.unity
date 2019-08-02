@@ -18462,6 +18462,24 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1444344188}
+    - target: {fileID: 224932152173487860, guid: 5c0d4b3a0ba22ba4693fa87ff70b83b4,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019117768096986, guid: 5c0d4b3a0ba22ba4693fa87ff70b83b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236572734972670, guid: 5c0d4b3a0ba22ba4693fa87ff70b83b4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224932152173487860, guid: 5c0d4b3a0ba22ba4693fa87ff70b83b4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 598
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c0d4b3a0ba22ba4693fa87ff70b83b4, type: 2}
   m_IsPrefabParent: 0
@@ -21782,6 +21800,14 @@ Prefab:
     - target: {fileID: 100008, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
       objectReference: {fileID: 0}
     - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
       propertyPath: InitialModule.startSpeed.minScalar

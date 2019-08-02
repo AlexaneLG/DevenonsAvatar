@@ -17,6 +17,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
     public GameObject canyonTracker;
     public GameObject panel;
     public Transform canyonHeightUI;
+    public Transform canyonHeightBlock;
 
     public UnityEngine.UI.Extensions.UILineRenderer LineRenderer;
 
@@ -41,6 +42,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         if (GameObject.Find("CanyonHeight") != null)
         {
             canyonHeightUI = GameObject.Find("CanyonHeight").transform;
+            canyonHeightBlock = GameObject.Find("Block-Height").transform;
             canyonHeightUI.gameObject.SetActive(false);
         }
 
@@ -257,7 +259,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
             canyonHeightUI.LookAt(mainCamera.transform);
 
             Vector3 worldScreenOffset = mainCamera.ScreenToWorldPoint(screenOffset);
-            canyonHeightUI.position = new Vector3(canyonHeightUI.position.x, worldScreenOffset.y, canyonHeightUI.position.z);
+            canyonHeightBlock.position = new Vector3(canyonHeightBlock.position.x, worldScreenOffset.y, canyonHeightBlock.position.z);
 
             yield return null;
         }
