@@ -281,5 +281,29 @@ public class DataManager : MonoBehaviour
         HUD.SetActive(display);
     }
 
+    public float GetCanyonWidth(Transform pos)
+    {
+        LayerMask mask = LayerMask.GetMask("Environment");
+        RaycastHit rightHit;
+        RaycastHit leftHit;
+        float rightDistance = 0f;
+        float leftDistance = 0f;
+        float canyonWidthValue = 0f;
+
+        if (Physics.Raycast(pos.position, pos.right, out rightHit, Mathf.Infinity, mask)
+            && Physics.Raycast(pos.position, -pos.right, out leftHit, Mathf.Infinity, mask))
+        {
+            if (rightHit.collider.gameObject.tag == "Canyon"
+                && leftHit.collider.gameObject.tag == "Canyon")
+            {
+                rightDistance = Mathf.Round(rightHit.distance);
+                leftDistance = Mathf.Round(leftHit.distance);
+                canyonWidthValue = rightDistance + leftDistance;
+            }
+        }
+
+        return canyonWidthValue;
+    }
+
 
 }

@@ -9,6 +9,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
     private Transform _canyon;
     private GameObject _canyonMesh;
     private float _canyonHeight;
+    private float _canyonWidth;
     private Canyon_Avatar _canyonAvatarComponent;
     private float _distanceCameraAvatarValue;
 
@@ -18,6 +19,11 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
     public GameObject panel;
     public Transform canyonHeightUI;
     public Transform canyonHeightBlock;
+    public Transform canyonWidthUI;
+    public Transform canyonWidthBlock;
+    public Transform canyonWidthArrow;
+
+    private bool _displayCanyonWidth;
 
     public UnityEngine.UI.Extensions.UILineRenderer LineRenderer;
 
@@ -46,6 +52,15 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
             canyonHeightUI.gameObject.SetActive(false);
         }
 
+        if (GameObject.Find("CanyonWidth") != null)
+        {
+            canyonWidthUI = GameObject.Find("CanyonWidth").transform;
+            canyonWidthBlock = GameObject.Find("Block-Width").transform;
+            canyonWidthUI.gameObject.SetActive(false);
+        }
+
+
+
         base.Awake();
     }
 
@@ -64,25 +79,20 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
 
-        // Get gameobjects tagged canyon
-        /*GameObject[] canyons = GameObject.FindGameObjectsWithTag("Canyon");
-
-        if (canyons.Length > 1)
-        {
-            _canyon = canyons[0].transform.position.y == 0 ? canyons[0].transform : canyons[1].transform;
-        }
-        else
-        {
-            _canyon = canyons[0].transform;
-        }*/
-
         _canyonAvatarComponent = _canyon.parent.GetComponent<Canyon_Avatar>();
         _canyonHeight = dataManager.scaleData(_canyonMesh.GetComponent<MeshCollider>().bounds.size.y);
         dataManager.CanyonHeight = _canyonHeight;
-        Debug.Log("Canyon height : " + _canyonHeight);
 
+        _canyonWidth = 0f;
 
         //AddNewPoint();
+
+        _displayCanyonWidth = false;
+
+        if (GameObject.Find("CanyonWidthArrow") != null)
+        {
+            canyonWidthArrow = GameObject.Find("CanyonWidthArrow").transform;
+        }
 
 
         base.Start();
@@ -117,6 +127,8 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         displayChild(2, false);
 
         StartCoroutine(DisplayCanyonHeight());
+
+        StartCoroutine(DisplayCanyonWidth());
 
         yield return StartCoroutine(DisplayCameraAvatarDistance());
     }
@@ -265,6 +277,47 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         }
 
         canyonHeightUI.gameObject.SetActive(false);
+    }
+
+
+    private IEnumerator DisplayCanyonWidth()
+    {
+        canyonWidthUI.gameObject.SetActive(true);
+
+
+        Vector3 screenOffset = new Vector3(2880, 1000, 0);
+
+        int frame = 0;
+        int frames = 60 * 20; // 20 seconds
+        _displayCanyonWidth = true;
+
+        StartCoroutine(ChangeCanyonWidth()); // calculate canyon width and set to text
+
+        while (frame < frames)
+        {
+            ++frame;
+            canyonWidthBlock.GetChild(0).LookAt(mainCamera.transform); // just the text block, not the arrow
+
+            Vector3 worldScreenOffset = mainCamera.ScreenToWorldPoint(screenOffset);
+            canyonWidthBlock.position = new Vector3(canyonWidthBlock.position.x, worldScreenOffset.y, canyonWidthBlock.position.z);
+
+            yield return null;
+        }
+        _displayCanyonWidth = false;
+        canyonWidthUI.gameObject.SetActive(false);
+    }
+
+    private IEnumerator ChangeCanyonWidth()
+    {
+        string width;
+        while (_displayCanyonWidth)
+        {
+            width = dataManager.changeFloatFormat(dataManager.GetCanyonWidth(canyonWidthArrow.transform));
+            GameObject.FindGameObjectWithTag("CanyonWidth").GetComponent<Text>().text = width;
+            Debug.Log("Canyon width: " + width);
+            yield return new WaitForSeconds(1f);
+        }
+        yield return null;
     }
 
     public void AddNewPoint()

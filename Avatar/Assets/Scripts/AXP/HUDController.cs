@@ -123,14 +123,14 @@ public class HUDController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             // Update distance in canyon
-            DisplayCanyonWidth();
+            //DisplayCanyonWidth();
             // Update FOV
             DisplayFieldOfVision();
         }
 
     }
 
-    public void DisplayCanyonWidth()
+    /*public void DisplayCanyonWidth()
     {
         LayerMask mask = LayerMask.GetMask("Environment");
         RaycastHit rightHit;
@@ -154,7 +154,7 @@ public class HUDController : MonoBehaviour
         {
             canyonWidthText.GetComponent<Text>().text = "-";
         }
-    }
+    }*/
 
     public void DisplayFieldOfVision()
     {
