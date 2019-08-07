@@ -291,7 +291,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         int frames = 60 * 20; // 20 seconds
         _displayCanyonWidth = true;
 
-        StartCoroutine(ChangeCanyonWidth()); // calculate canyon width and set to text
+        //StartCoroutine(ChangeCanyonWidth()); // calculate canyon width and set to text
 
         while (frame < frames)
         {
@@ -312,7 +312,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         string width;
         while (_displayCanyonWidth)
         {
-            width = dataManager.changeFloatFormat(dataManager.GetCanyonWidth(canyonWidthArrow.transform));
+            width = dataManager.changeFloatFormat(dataManager.GetCanyonWidth(canyonWidthArrow));
             GameObject.FindGameObjectWithTag("CanyonWidth").GetComponent<Text>().text = width;
             Debug.Log("Canyon width: " + width);
             yield return new WaitForSeconds(1f);
