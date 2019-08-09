@@ -53,7 +53,7 @@ public class ContextualUIController : MonoBehaviour
             {
                 case 0:
                     // Start_Avatar : Environnement_Avatar
-                    DisplayLayer(0, true);
+                    //DisplayLayer(0, true);
                     break;
                 case 1:
                     // ProjectUser_Avatar

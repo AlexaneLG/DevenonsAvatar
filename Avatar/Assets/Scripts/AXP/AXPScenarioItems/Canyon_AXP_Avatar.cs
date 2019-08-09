@@ -56,7 +56,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         {
             canyonWidthUI = GameObject.Find("CanyonWidth").transform;
             canyonWidthBlock = GameObject.Find("Block-Width").transform;
-            canyonWidthUI.gameObject.SetActive(false);
+            //canyonWidthUI.gameObject.SetActive(false);
         }
 
 
@@ -291,7 +291,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         int frames = 60 * 20; // 20 seconds
         _displayCanyonWidth = true;
 
-        //StartCoroutine(ChangeCanyonWidth()); // calculate canyon width and set to text
+        StartCoroutine(ChangeCanyonWidth()); // calculate canyon width and set to text
 
         while (frame < frames)
         {
@@ -300,6 +300,9 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
 
             Vector3 worldScreenOffset = mainCamera.ScreenToWorldPoint(screenOffset);
             canyonWidthBlock.position = new Vector3(canyonWidthBlock.position.x, worldScreenOffset.y, canyonWidthBlock.position.z);
+
+            /*Debug.DrawRay(canyonWidthArrow.position, canyonWidthArrow.right * 100, Color.yellow);
+            Debug.DrawRay(canyonWidthArrow.position, -canyonWidthArrow.right * 100, Color.magenta);*/
 
             yield return null;
         }
@@ -312,9 +315,10 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
         string width;
         while (_displayCanyonWidth)
         {
-            width = dataManager.changeFloatFormat(dataManager.GetCanyonWidth(canyonWidthArrow));
+            width = dataManager.changeFloatFormat(dataManager.scaleData(dataManager.GetCanyonWidth(canyonWidthArrow)));
             GameObject.FindGameObjectWithTag("CanyonWidth").GetComponent<Text>().text = width;
             Debug.Log("Canyon width: " + width);
+
             yield return new WaitForSeconds(1f);
         }
         yield return null;

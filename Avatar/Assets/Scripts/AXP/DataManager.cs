@@ -294,7 +294,8 @@ public class DataManager : MonoBehaviour
             && Physics.Raycast(pos.position, -pos.right, out leftHit, Mathf.Infinity, mask))
         {
             if (rightHit.collider.gameObject.tag == "Canyon"
-                && leftHit.collider.gameObject.tag == "Canyon")
+                && leftHit.collider.gameObject.tag == "Canyon"
+                && rightHit.collider.gameObject.name == "Mesh")
             {
                 rightDistance = Mathf.Round(rightHit.distance);
                 leftDistance = Mathf.Round(leftHit.distance);
