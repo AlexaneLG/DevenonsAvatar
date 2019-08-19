@@ -397,6 +397,7 @@
     <Compile Include="Assets\Scripts\CharacterController\SwitchToFPS.cs" />
     <Compile Include="Assets\Scripts\Collisions\CollisionManager.cs" />
     <Compile Include="Assets\Scripts\Controller\ArmController.cs" />
+    <Compile Include="Assets\Scripts\Controller\ReplayController.cs" />
     <Compile Include="Assets\Scripts\Controller\SpaceController.cs" />
     <Compile Include="Assets\Scripts\Controller\SpaceController_EXT.cs" />
     <Compile Include="Assets\Scripts\Controller\WiiController.cs" />
