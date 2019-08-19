@@ -11877,7 +11877,7 @@ MonoBehaviour:
   scenarioItemData: {fileID: 1716659437}
   TEAData: {fileID: 0}
   wiiBBData: {fileID: 0}
-  kinectData: {fileID: 1360875486}
+  kinectData: {fileID: 0}
   altitudeData: {fileID: 0}
   collisionEventData: {fileID: 0}
   meteorProximityData: {fileID: 0}
@@ -21835,6 +21835,14 @@ Prefab:
       propertyPath: RotationModule.curve.minScalar
       value: 3.4907
       objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
     - {fileID: 8200000, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
@@ -22134,7 +22142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1360875485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291f0c9a1dcb01243846e1de3ceef851, type: 3}
+  m_Script: {fileID: 11500000, guid: db63bf14b29f29049a1db25ce65bc256, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1360875487

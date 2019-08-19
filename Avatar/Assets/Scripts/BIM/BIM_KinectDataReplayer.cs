@@ -6,7 +6,8 @@ using System.Text.RegularExpressions;
 using System.IO;
 
 
-public class BIM_KinectDataReplayer : MonoBehaviour {
+public class BIM_KinectDataReplayer : MonoBehaviour
+{
 
     // BIM required datas
     public SensorGeneric<float> hand_Left_X = new SensorGeneric<float>("hand_Left_X");
@@ -19,9 +20,9 @@ public class BIM_KinectDataReplayer : MonoBehaviour {
     static string SPLIT_RE = ",";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
 
-	void Start () 
+    void Start()
     {
-        string path = Application.dataPath + "/StreamingAssets/dump.csv";
+        string path = Application.dataPath + "/BIM_Data/dump.csv";
         string data = System.IO.File.ReadAllText(path);
 
         var lines = Regex.Split(data, LINE_SPLIT_RE);
@@ -74,5 +75,8 @@ public class BIM_KinectDataReplayer : MonoBehaviour {
                 }
             }
         }
+
+        // Debug
+        Debug.Log("shoulder_center_X : " + shoulder_center_X);
     }
 }
