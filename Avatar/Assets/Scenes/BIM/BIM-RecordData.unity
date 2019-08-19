@@ -17314,7 +17314,7 @@ MonoBehaviour:
   duration: 60
   EnabledInScenario: 1
   timer: 0
-  WindSound: {fileID: 0}
+  WindSound: {fileID: 1543765878}
 --- !u!1 &1117659824
 GameObject:
   m_ObjectHideFlags: 0
@@ -21555,6 +21555,14 @@ Prefab:
     - target: {fileID: 100008, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
       objectReference: {fileID: 0}
     - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
       propertyPath: InitialModule.startSpeed.minScalar
