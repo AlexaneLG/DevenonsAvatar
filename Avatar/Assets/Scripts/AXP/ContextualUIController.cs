@@ -99,7 +99,7 @@ public class ContextualUIController : MonoBehaviour
                     break;
                 case 10:
                     // End_Avatar
-                    //DisplayLayer(7, true);
+                    DisplayLayer(7, true);
                     break;
                 default:
                     break;
