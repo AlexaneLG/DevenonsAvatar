@@ -22,6 +22,7 @@ public class BIM_KinectDataReplayer : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Start kinect replay");
         string path = Application.dataPath + "/BIM_Data/dump.csv";
         string data = System.IO.File.ReadAllText(path);
 
@@ -77,6 +78,12 @@ public class BIM_KinectDataReplayer : MonoBehaviour
         }
 
         // Debug
-        Debug.Log("shoulder_center_X : " + shoulder_center_X);
+        Debug.Log("Display kinect datas, size : " + shoulder_center_X.values.Count);
+        foreach (float f in shoulder_center_X.values)
+        {
+            Debug.Log("Display kinect datas");
+            Debug.Log("shoulder_center_X : " + f);
+        }
+
     }
 }
