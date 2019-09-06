@@ -10,9 +10,12 @@ public class Start_Avatar : ScenarioItem
     {
         base.Start();
 
-        if (!SensorRecorderManager.instance.isRecording)
+        if (SensorRecorderManager.instance != null)
         {
-            SensorRecorderManager.instance.startRecording();
+            if (!SensorRecorderManager.instance.isRecording)
+            {
+                SensorRecorderManager.instance.startRecording();
+            }
         }
 
         WindSound.enabled = true;

@@ -14,8 +14,8 @@ public class BIM_KinectDataReplayer : MonoBehaviour
     public SensorGeneric<float> hand_Left_Y = new SensorGeneric<float>("hand_Left_Y");
     public SensorGeneric<float> hand_Right_X = new SensorGeneric<float>("hand_Right_X");
     public SensorGeneric<float> hand_Right_Y = new SensorGeneric<float>("hand_Right_Y");
-    public SensorGeneric<float> shoulder_center_X = new SensorGeneric<float>("hip_center_X");
-    public SensorGeneric<float> shoulder_center_Y = new SensorGeneric<float>("hip_center_Y");
+    public SensorGeneric<float> shoulder_center_X = new SensorGeneric<float>("shoulder_center_X");
+    public SensorGeneric<float> shoulder_center_Y = new SensorGeneric<float>("shoulder_center_Y");
 
     static string SPLIT_RE = ",";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
@@ -32,6 +32,7 @@ public class BIM_KinectDataReplayer : MonoBehaviour
         {
             {
                 var valuesTab = Regex.Split(lines[i], SPLIT_RE);
+                //Debug.Log("Values tab 0 :" + valuesTab[0] + " ; lenght : " + valuesTab.Length);
 
                 if (valuesTab[0] == "hand_Left_X")
                 {
@@ -61,14 +62,14 @@ public class BIM_KinectDataReplayer : MonoBehaviour
                         hand_Right_Y.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
                 }
 
-                else if (valuesTab[0] == "shoulder_center_X")
+                else if (valuesTab[0] == "hip_center_X")
                 {
                     shoulder_center_X.maxDataIndex = valuesTab.Length - 1;
                     for (var y = 1; y < valuesTab.Length; y++)
                         shoulder_center_X.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
                 }
 
-                else if (valuesTab[0] == "shoulder_center_Y")
+                else if (valuesTab[0] == "hip_center_Y")
                 {
                     shoulder_center_Y.maxDataIndex = valuesTab.Length - 1;
                     for (var y = 1; y < valuesTab.Length; y++)
@@ -78,12 +79,7 @@ public class BIM_KinectDataReplayer : MonoBehaviour
         }
 
         // Debug
-        Debug.Log("Display kinect datas, size : " + shoulder_center_X.values.Count);
-        foreach (float f in shoulder_center_X.values)
-        {
-            Debug.Log("Display kinect datas");
-            Debug.Log("shoulder_center_X : " + f);
-        }
+        //Debug.Log("Display kinect datas, size : " + shoulder_center_X.values.Count);
 
     }
 }

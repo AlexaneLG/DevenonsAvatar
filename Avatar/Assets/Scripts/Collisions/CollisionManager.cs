@@ -64,48 +64,51 @@ public class CollisionManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (SensorRecorderManager.startRecordingSensorData)
+        if (SensorRecorderManager.instance != null)
         {
-            if (characterTransform != null && canyonScenarioItem.activeInHierarchy == true && !isCrashing)
+            if (SensorRecorderManager.startRecordingSensorData)
             {
-                RaycastHit leftHit;
-                Ray leftRay = new Ray(characterTransform.position, transform.right * -1);
-
-                RaycastHit rightHit;
-                Ray rightRay = new Ray(characterTransform.position, transform.right);
-
-                if (Physics.Raycast(leftRay, out leftHit) && (Physics.Raycast(rightRay, out rightHit)))
+                if (characterTransform != null && canyonScenarioItem.activeInHierarchy == true && !isCrashing)
                 {
-                    Debug.DrawLine(characterTransform.position, leftHit.point, Color.red);
-                    Debug.DrawLine(characterTransform.position, rightHit.point, Color.cyan);
+                    RaycastHit leftHit;
+                    Ray leftRay = new Ray(characterTransform.position, transform.right * -1);
 
-                    if (leftHit.distance <= rightHit.distance && !isCrashing)
+                    RaycastHit rightHit;
+                    Ray rightRay = new Ray(characterTransform.position, transform.right);
+
+                    if (Physics.Raycast(leftRay, out leftHit) && (Physics.Raycast(rightRay, out rightHit)))
                     {
-                        canyonDistance = Mathf.Round(leftHit.distance * 100f) / 100f;
+                        Debug.DrawLine(characterTransform.position, leftHit.point, Color.red);
+                        Debug.DrawLine(characterTransform.position, rightHit.point, Color.cyan);
 
-                        if (canyonDistance < canyonHitDistance && canyonDistance >= 0 && !isCrashing)
+                        if (leftHit.distance <= rightHit.distance && !isCrashing)
                         {
-                            rightCanyonCollision = false;
-                            CanyonCrash(rightCanyonCollision);
+                            canyonDistance = Mathf.Round(leftHit.distance * 100f) / 100f;
+
+                            if (canyonDistance < canyonHitDistance && canyonDistance >= 0 && !isCrashing)
+                            {
+                                rightCanyonCollision = false;
+                                CanyonCrash(rightCanyonCollision);
+                            }
+                        }
+
+                        else if (leftHit.distance > rightHit.distance && !isCrashing)
+                        {
+                            canyonDistance = Mathf.Round(rightHit.distance * 100f) / 100f;
+
+                            if (canyonDistance < canyonHitDistance && canyonDistance >= 0)
+                            {
+                                rightCanyonCollision = true;
+                                CanyonCrash(rightCanyonCollision);
+                            }
                         }
                     }
-
-                    else if (leftHit.distance > rightHit.distance && !isCrashing)
-                    {
-                        canyonDistance = Mathf.Round(rightHit.distance * 100f) / 100f;
-
-                        if (canyonDistance < canyonHitDistance && canyonDistance >= 0)
-                        {
-                            rightCanyonCollision = true;
-                            CanyonCrash(rightCanyonCollision);
-                        }
-                    }
+                    else
+                        canyonDistance = -1;
                 }
                 else
                     canyonDistance = -1;
             }
-            else
-                canyonDistance = -1;
         }
     }
 
