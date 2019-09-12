@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
 
-public class BIM_TimeDataReplayer : MonoBehaviour {
+public class BIM_TimeDataReplayer : MonoBehaviour
+{
 
     public Slider videoSlider;
 
@@ -16,7 +17,7 @@ public class BIM_TimeDataReplayer : MonoBehaviour {
     static string SPLIT_RE = ",";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
 
-    void Awake ()
+    void Awake()
     {
         string path = Application.dataPath + "/BIM_Data/dump.csv";
         string data = System.IO.File.ReadAllText(path);
@@ -39,7 +40,7 @@ public class BIM_TimeDataReplayer : MonoBehaviour {
         }
     }
 
-    void Update ()
+    void Update()
     {
         /*if (videoSlider.value >= timeData_Replay.values[timeData_Replay.maxDataIndex - 1])
             dataTimeIdx = -1;
@@ -55,10 +56,13 @@ public class BIM_TimeDataReplayer : MonoBehaviour {
             } 
         }*/
 
-        for (var i = 1; i < timeData_Replay.maxDataIndex; i++)
+        /*for (var i = 1; i < timeData_Replay.maxDataIndex; i++)
         {
             dataTimeIdx = i;
+        }*/
+        if (CharacterControllerBasedOnAxis.currentScenarioItem > -1)
+        {
+            ++dataTimeIdx;
         }
-
     }
 }

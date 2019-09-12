@@ -12,10 +12,13 @@ public class BIM_KinectDataReplayer : MonoBehaviour
     // BIM required datas
     public SensorGeneric<float> hand_Left_X = new SensorGeneric<float>("hand_Left_X");
     public SensorGeneric<float> hand_Left_Y = new SensorGeneric<float>("hand_Left_Y");
+    public SensorGeneric<float> hand_Left_Z = new SensorGeneric<float>("hand_Left_Z");
     public SensorGeneric<float> hand_Right_X = new SensorGeneric<float>("hand_Right_X");
     public SensorGeneric<float> hand_Right_Y = new SensorGeneric<float>("hand_Right_Y");
+    public SensorGeneric<float> hand_Right_Z = new SensorGeneric<float>("hand_Right_Z");
     public SensorGeneric<float> shoulder_center_X = new SensorGeneric<float>("shoulder_center_X");
     public SensorGeneric<float> shoulder_center_Y = new SensorGeneric<float>("shoulder_center_Y");
+    public SensorGeneric<float> shoulder_center_Z = new SensorGeneric<float>("shoulder_center_Z");
 
     static string SPLIT_RE = ",";
     static string LINE_SPLIT_RE = @"\r\n|\n\r|\n|\r";
@@ -48,6 +51,13 @@ public class BIM_KinectDataReplayer : MonoBehaviour
                         hand_Left_Y.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
                 }
 
+                else if (valuesTab[0] == "hand_Left_Z")
+                {
+                    hand_Left_Z.maxDataIndex = valuesTab.Length - 1;
+                    for (var y = 1; y < valuesTab.Length; y++)
+                        hand_Left_Z.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
+                }
+
                 else if (valuesTab[0] == "hand_Right_X")
                 {
                     hand_Right_X.maxDataIndex = valuesTab.Length - 1;
@@ -62,6 +72,13 @@ public class BIM_KinectDataReplayer : MonoBehaviour
                         hand_Right_Y.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
                 }
 
+                else if (valuesTab[0] == "hand_Right_Z")
+                {
+                    hand_Right_Z.maxDataIndex = valuesTab.Length - 1;
+                    for (var y = 1; y < valuesTab.Length; y++)
+                        hand_Right_Z.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
+                }
+
                 else if (valuesTab[0] == "hip_center_X")
                 {
                     shoulder_center_X.maxDataIndex = valuesTab.Length - 1;
@@ -74,6 +91,13 @@ public class BIM_KinectDataReplayer : MonoBehaviour
                     shoulder_center_Y.maxDataIndex = valuesTab.Length - 1;
                     for (var y = 1; y < valuesTab.Length; y++)
                         shoulder_center_Y.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
+                }
+
+                else if (valuesTab[0] == "hip_center_Z")
+                {
+                    shoulder_center_Z.maxDataIndex = valuesTab.Length - 1;
+                    for (var y = 1; y < valuesTab.Length; y++)
+                        shoulder_center_Z.AddRecordedValue(float.Parse(valuesTab[y].ToString()));
                 }
             }
         }

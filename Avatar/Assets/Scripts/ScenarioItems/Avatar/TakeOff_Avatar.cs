@@ -13,6 +13,8 @@ public class TakeOff_Avatar : ScenarioItem
 
     public Transform handLeft, handRight, spine;
 
+    public ReplayController replayController;
+
     // Use this for initialization
     override public void Start()
     {
@@ -53,6 +55,8 @@ public class TakeOff_Avatar : ScenarioItem
 
                 }
             }
+            else if (replayController != null
+            && replayController.recordedHandLeft.y > replayController.recordedShoulderCenter.y && replayController.recordedHandRight.y > replayController.recordedShoulderCenter.y) { }
         }
     }
 }

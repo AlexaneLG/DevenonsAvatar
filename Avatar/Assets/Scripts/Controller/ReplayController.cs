@@ -27,59 +27,56 @@ public class ReplayController : AvatarFlightController
     public float minAltitude = 35f;
 
     public string csvPath;
-    public UnityEngine.Video.VideoClip videoClip;
+
+    public Vector3 recordedHandRight;
+    public Vector3 recordedHandLeft;
+    public Vector3 recordedShoulderCenter;
 
     // Use this for initialization
-    public override void Start () {
+    public override void Start()
+    {
 
         // Find replayers
 
         if (kinectDataReplayer == null && GameObject.Find("KinectDataReplayer"))
         {
             kinectDataReplayer = GameObject.Find("KinectDataReplayer").GetComponent<BIM_KinectDataReplayer>();
-        } else
-        {
-            Debug.Log("Can not find KinectDataReplayer");
         }
-
 
         if (scenarioItemDataReplayer == null && GameObject.Find("ScenarioItemDataReplayer"))
         {
             scenarioItemDataReplayer = GameObject.Find("ScenarioItemDataReplayer").GetComponent<BIM_ScenarioItemDataReplayer>();
-        }
-        else
-        {
-            Debug.Log("Can not find ScenarioItemDataReplayer");
         }
 
         if (timeDataReplayer == null && GameObject.Find("TimeDataReplayer"))
         {
             timeDataReplayer = GameObject.Find("TimeDataReplayer").GetComponent<BIM_TimeDataReplayer>();
         }
-        else
-        {
-            Debug.Log("Can not find TimeDataReplayer");
-        }
 
         _deltaT = 0;
 
         base.Start();
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        //Debug.Log("CSV : Scenario item n°" + scenarioItemDataReplayer.currentScenarioItem);
+    // Update is called once per frame
+    void Update()
+    {
 
-        if (scenarioItemDataReplayer.currentScenarioItem == 2)
+        Debug.Log("CSV : Scenario item n°" + scenarioItemDataReplayer.currentScenarioItem);
+
+        /*if (scenarioItemDataReplayer.currentScenarioItem == 2)
         {
             takeOffItem.decollageAuto = true;
             Debug.Log("CSV : Take off !");
-        }
+        }*/
 
-        Vector2 pl = new Vector2(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT]);
-        Vector2 pr = new Vector2(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT]);
-        Vector2 pc = new Vector2(kinectDataReplayer.shoulder_center_X.values[_deltaT], kinectDataReplayer.shoulder_center_Y.values[_deltaT]);
+        recordedHandRight = new Vector3(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT], kinectDataReplayer.hand_Left_Z.values[_deltaT]);
+        recordedHandLeft = new Vector3(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT], kinectDataReplayer.hand_Right_Z.values[_deltaT]);
+        recordedShoulderCenter = new Vector3(kinectDataReplayer.shoulder_center_X.values[_deltaT], kinectDataReplayer.shoulder_center_Y.values[_deltaT], kinectDataReplayer.shoulder_center_Z.values[_deltaT]);
+
+        Vector2 pl = recordedHandRight;
+        Vector2 pr = recordedHandLeft;
+        Vector2 pc = recordedShoulderCenter;
 
         Vector2 d = pr - pl;
         handMagnitude = d.magnitude;

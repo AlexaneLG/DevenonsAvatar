@@ -9137,8 +9137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kinectDataReplayer: {fileID: 1360875486}
-  scenarioItemDataReplayer: {fileID: 0}
-  timeDataReplayer: {fileID: 0}
+  scenarioItemDataReplayer: {fileID: 1716659437}
+  timeDataReplayer: {fileID: 988484166}
   takeOffItem: {fileID: 1676147582}
   handRotationSpeed: 2
   handMagnitude: 0
@@ -9147,7 +9147,6 @@ MonoBehaviour:
   maxAltitude: 500
   minAltitude: 100
   csvPath: 
-  videoClip: {fileID: 0}
 --- !u!114 &556817918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22439,6 +22438,54 @@ Prefab:
       propertyPath: RotationModule.curve.minScalar
       value: 3.4907
       objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
     - {fileID: 8200000, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
@@ -22607,10 +22654,13 @@ MonoBehaviour:
   shoulderCenter: {fileID: 0}
   hand_Left_X: 0
   hand_Left_Y: 0
+  hand_Left_Z: 0
   hand_Right_X: 0
   hand_Right_Y: 0
+  hand_Right_Z: 0
   shoulder_center_X: 0
   shoulder_center_Y: 0
+  shoulder_center_Z: 0
 --- !u!1 &1350192242 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
@@ -24731,6 +24781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3e9fc4e1f55c34f85c5ea8790f81b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recordKinectCamera: {fileID: 0}
+  _recordKinectVideoOnly: 0
 --- !u!1 &1462822704
 GameObject:
   m_ObjectHideFlags: 0
@@ -25370,13 +25422,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514474923}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 4.3, z: 0}
   m_LocalScale: {x: 1.77777, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1575757797}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!23 &1514474925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25420,7 +25472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1e6a7f48ce85046a7ce6811670d015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoClip: {fileID: 32900000, guid: bde1962960f0aab43abf20e6ca0ae37c, type: 3}
+  videoClip: {fileID: 32900000, guid: fb83616d7025c2542b33a5633bf0f091, type: 3}
   videoPlayer: {fileID: 0}
 --- !u!33 &1514474927
 MeshFilter:
