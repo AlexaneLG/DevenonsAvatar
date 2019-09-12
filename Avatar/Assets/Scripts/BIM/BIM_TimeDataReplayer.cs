@@ -41,7 +41,7 @@ public class BIM_TimeDataReplayer : MonoBehaviour {
 
     void Update ()
     {
-        if (videoSlider.value >= timeData_Replay.values[timeData_Replay.maxDataIndex - 1])
+        /*if (videoSlider.value >= timeData_Replay.values[timeData_Replay.maxDataIndex - 1])
             dataTimeIdx = -1;
 
         else
@@ -53,7 +53,12 @@ public class BIM_TimeDataReplayer : MonoBehaviour {
                     dataTimeIdx = i;
                 }
             } 
+        }*/
+
+        for (var i = 1; i < timeData_Replay.maxDataIndex; i++)
+        {
+            dataTimeIdx = i;
         }
-        
+
     }
 }

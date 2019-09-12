@@ -11,12 +11,18 @@ public class BlackMagic : MonoBehaviour
 
     VideoCapture vc = null;
     VideoCaptureCtrl vcc = null;
+    public Camera recordKinectCamera;
+    public bool _recordKinectVideoOnly = false;
 
     void Awake()
     {
 
         var camera = Camera.main;
 
+        if (_recordKinectVideoOnly && recordKinectCamera != null)
+        {
+            camera = recordKinectCamera;
+        }
 
         if (camera.GetComponent<VideoCapture>() == null)
         {

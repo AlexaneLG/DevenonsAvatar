@@ -26,6 +26,9 @@ public class ReplayController : AvatarFlightController
     public float maxAltitude = 500f;
     public float minAltitude = 35f;
 
+    public string csvPath;
+    public UnityEngine.Video.VideoClip videoClip;
+
     // Use this for initialization
     public override void Start () {
 
@@ -66,9 +69,12 @@ public class ReplayController : AvatarFlightController
 	// Update is called once per frame
 	void Update () {
 
+        //Debug.Log("CSV : Scenario item n°" + scenarioItemDataReplayer.currentScenarioItem);
+
         if (scenarioItemDataReplayer.currentScenarioItem == 2)
         {
             takeOffItem.decollageAuto = true;
+            Debug.Log("CSV : Take off !");
         }
 
         Vector2 pl = new Vector2(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT]);

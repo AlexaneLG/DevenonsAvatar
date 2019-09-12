@@ -1,0 +1,30 @@
+TimeIdx,0
+Scenario,0
+EMG 1,0
+EMG 2,0
+EMG 3,0
+EMG 4,0
+EMG 5,0
+EMG 6,0
+EMG 7,0
+EMG 8,0
+ECG,0
+GSR,0
+RESP,0
+X_CP,0
+Y_CP,0
+arm_Forearm_R,0
+arm_Forearm_L,0
+arm_Torso_R,0
+arm_Torso_L,0
+thigh_Calf_R,0
+thigh_Calf_L,0
+torso_Tighs,0
+shouldersVerticalRotation,0
+shouldersLateralRotation,0
+hipRotation,0
+hipRotation,0
+CollisionEvent,0
+MeteorProximity_1,0
+MeteorProximity_2,0
+MeteorProximity_3,0

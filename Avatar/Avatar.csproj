@@ -387,6 +387,7 @@
     <Compile Include="Assets\Scripts\Audio\Instructions\AudioInstructionManager.cs" />
     <Compile Include="Assets\Scripts\AvatarFlightController.cs" />
     <Compile Include="Assets\Scripts\BIM\BIM_CSVExtractor.cs" />
+    <Compile Include="Assets\Scripts\BIM\BIM_CameraNavigation.cs" />
     <Compile Include="Assets\Scripts\BIM\BIM_KinectDataReplayer.cs" />
     <Compile Include="Assets\Scripts\BIM\BIM_KinectSensorDataCollection.cs" />
     <Compile Include="Assets\Scripts\BIM\BIM_KinectSensorRecorder.cs" />
@@ -394,6 +395,8 @@
     <Compile Include="Assets\Scripts\BIM\BIM_ScenarioItemDataReplayer.cs" />
     <Compile Include="Assets\Scripts\BIM\BIM_TimeDataReplayer.cs" />
     <Compile Include="Assets\Scripts\BIM\BlackMagic\BlackMagic.cs" />
+    <Compile Include="Assets\Scripts\BIM\GetKinectVideo.cs" />
+    <Compile Include="Assets\Scripts\BIM\SwitchCamera.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CharacterController\CharacterControllerBasedOnAxis.cs" />
     <Compile Include="Assets\Scripts\CharacterController\Interpolate.cs" />
