@@ -176,10 +176,7 @@ public class CharacterControllerBasedOnAxis : MonoBehaviour
         {
             float avatarHeight = Mathf.Clamp((Vector3.Distance(pointManBase, pointManHead.localPosition)) * avatarScaleFactor[i], 0.5f, 2f);
             avatars3D[i].localScale = new Vector3(avatarHeight, avatarHeight, avatarHeight);
-            /*Debug.Log("i : " + i + 
-                ", name : " + avatars3D[i].gameObject.name + 
-                ", avatarHeight : " + avatarHeight + 
-                ", avatars3D[i].localScale : " + avatars3D[i].localScale);*/
+            Debug.Log("i : " + i + ", name : " + avatars3D[i].gameObject.name + ", avatarHeight : " + avatarHeight + ", avatars3D[i].localScale : " + avatars3D[i].localScale);
         }
     }
 

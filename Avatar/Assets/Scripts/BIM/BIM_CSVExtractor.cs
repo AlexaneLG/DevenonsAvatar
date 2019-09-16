@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-public class BIM_CSVExtractor : MonoBehaviour {
+public class BIM_CSVExtractor : MonoBehaviour
+{
 
     public TimeDataReplay timeData;
     public ScenarioDataReplay scenarioItemData;
@@ -24,7 +25,7 @@ public class BIM_CSVExtractor : MonoBehaviour {
 
     public void ExtractCSVFile()
     {
-        if(firstExtraction)
+        if (firstExtraction)
         {
             string prefix = System.DateTime.Now.ToString().Replace('/', '-');
             prefix = prefix.Replace(':', '-');
@@ -40,7 +41,7 @@ public class BIM_CSVExtractor : MonoBehaviour {
 
         if (CSVfileName != "")
         {
-            if(fileIndex == 0)
+            if (fileIndex == 0)
                 fileRef = CSVfileName + ".csv";
 
             else
@@ -103,7 +104,7 @@ public class BIM_CSVExtractor : MonoBehaviour {
         writer.Write(writer.NewLine);
     }
 
-    public void adjustExtractionDuration (float newExtractionDuration)
+    public void adjustExtractionDuration(float newExtractionDuration)
     {
         extractDuration = newExtractionDuration;
         extractionInputField.text = extractDuration.ToString();

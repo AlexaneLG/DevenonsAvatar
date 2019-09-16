@@ -15,7 +15,7 @@ public class KinectSensorRecorder : MonoBehaviour
     // BIM required datas
     public Transform handLeft, handRight, shoulderCenter;
     public float hand_Left_X, hand_Left_Y, hand_Left_Z, hand_Right_X, hand_Right_Y, hand_Right_Z, shoulder_center_X, shoulder_center_Y, shoulder_center_Z;
-    bool recordBIMData = true;
+    bool recordBIMData = false;
 
     void FixedUpdate()
     {

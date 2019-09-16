@@ -13,7 +13,8 @@ public class ReplayController : AvatarFlightController
     public BIM_TimeDataReplayer timeDataReplayer;
     private int _deltaT;
 
-    public TakeOff_Avatar takeOffItem;
+    public CubemanController cubeMan;
+    public AvatarControllerClassic refAvatar;
 
     // Arm Controller attributs
 
@@ -64,18 +65,26 @@ public class ReplayController : AvatarFlightController
 
         Debug.Log("CSV : Scenario item n°" + scenarioItemDataReplayer.currentScenarioItem);
 
-        /*if (scenarioItemDataReplayer.currentScenarioItem == 2)
-        {
-            takeOffItem.decollageAuto = true;
-            Debug.Log("CSV : Take off !");
-        }*/
+        //Debug.Log("delta T : " + _deltaT);
 
-        recordedHandRight = new Vector3(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT], kinectDataReplayer.hand_Left_Z.values[_deltaT]);
-        recordedHandLeft = new Vector3(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT], kinectDataReplayer.hand_Right_Z.values[_deltaT]);
+        recordedHandLeft = new Vector3(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT], kinectDataReplayer.hand_Left_Z.values[_deltaT]);
+        recordedHandRight = new Vector3(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT], kinectDataReplayer.hand_Right_Z.values[_deltaT]);
         recordedShoulderCenter = new Vector3(kinectDataReplayer.shoulder_center_X.values[_deltaT], kinectDataReplayer.shoulder_center_Y.values[_deltaT], kinectDataReplayer.shoulder_center_Z.values[_deltaT]);
 
-        Vector2 pl = recordedHandRight;
-        Vector2 pr = recordedHandLeft;
+        cubeMan.Hand_Left.transform.position = recordedHandLeft;
+        cubeMan.Hand_Right.transform.position = recordedHandRight;
+
+        cubeMan.Neck.transform.position = recordedShoulderCenter;
+
+
+        /*refAvatar.HandLeft.transform.position = recordedHandLeft;
+        refAvatar.HandRight.transform.position = recordedHandRight;
+        refAvatar.Neck.transform.position = recordedShoulderCenter;*/
+
+
+
+        Vector2 pl = recordedHandLeft;
+        Vector2 pr = recordedHandRight;
         Vector2 pc = recordedShoulderCenter;
 
         Vector2 d = pr - pl;
@@ -97,7 +106,13 @@ public class ReplayController : AvatarFlightController
                 controller.altitude = Mathf.Clamp(controller.altitude, minAltitude, maxAltitude) - altitudeFactor * Time.deltaTime;
         }
 
-        ++_deltaT;
+        if (scenarioItemDataReplayer.currentScenarioItem > -1)
+        {
+            //++_deltaT;
+            _deltaT += 4;
+            Debug.Log("recordedHandRight : " + recordedHandRight);
+        }
+
 
     }
 

@@ -19,7 +19,7 @@ SubShader {
 	Tags {"Queue"="Overlay" "IgnoreProjector"="True" "RenderType"="Transparent"}
 	LOD 300
 	Cull Off
-	ZWrite Off
+	ZWrite On
 	ZTest  Always
 	Blend SrcAlpha OneMinusSrcAlpha 
 	
@@ -94,6 +94,7 @@ SubShader {
 				if( IN.texcoord.y > 1-_ClampYdown)
 					tempColor.a = 0;
 
+				clip(tempColor.a - 0.001f);
 				return tempColor;
 
 				
