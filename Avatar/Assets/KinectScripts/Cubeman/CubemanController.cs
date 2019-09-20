@@ -65,6 +65,8 @@ public class CubemanController : MonoBehaviour
     private Vector3 initialPosOffset = Vector3.zero;
     private Int64 initialPosUserID = 0;
 
+    public bool replayMode = false;
+
 
     void Start()
     {
@@ -126,101 +128,104 @@ public class CubemanController : MonoBehaviour
         // get 1st player
         Int64 userID = manager ? manager.GetUserIdByIndex(playerIndex) : 0;
 
-        if (userID <= 0)
-        {
-            // reset the pointman position and rotation
-            if (transform.position != initialPosition)
+        if (!replayMode) { 
+
+            if (userID <= 0)
             {
-                transform.position = initialPosition;
-            }
-
-            if (transform.rotation != initialRotation)
-            {
-                transform.rotation = initialRotation;
-            }
-
-            for (int i = 0; i < bones.Length; i++)
-            {
-                bones[i].gameObject.SetActive(true);
-
-                bones[i].transform.localPosition = Vector3.zero;
-                bones[i].transform.localRotation = Quaternion.identity;
-
-                if (skeletonLine)
+                // reset the pointman position and rotation
+                if (transform.position != initialPosition)
                 {
-                    lines[i].gameObject.SetActive(false);
+                    transform.position = initialPosition;
                 }
-            }
 
-            return;
-        }
+                if (transform.rotation != initialRotation)
+                {
+                    transform.rotation = initialRotation;
+                }
 
-        // set the position in space
-        Vector3 posPointMan = manager.GetUserPosition(userID);
-        posPointMan.z = !mirroredMovement ? -posPointMan.z : posPointMan.z;
-
-        // store the initial position
-        if (initialPosUserID != userID)
-        {
-            initialPosUserID = userID;
-            initialPosOffset = transform.position - (verticalMovement ? posPointMan * moveRate : new Vector3(posPointMan.x, 0, posPointMan.z) * moveRate);
-        }
-
-        transform.position = initialPosOffset +
-            (verticalMovement ? posPointMan * moveRate : new Vector3(posPointMan.x, 0, posPointMan.z) * moveRate);
-
-        // update the local positions of the bones
-        for (int i = 0; i < bones.Length; i++)
-        {
-            if (bones[i] != null)
-            {
-                int joint = !mirroredMovement ? i : (int)KinectInterop.GetMirrorJoint((KinectInterop.JointType)i);
-                if (joint < 0)
-                    continue;
-
-                if (manager.IsJointTracked(userID, joint))
+                for (int i = 0; i < bones.Length; i++)
                 {
                     bones[i].gameObject.SetActive(true);
 
-                    Vector3 posJoint = manager.GetJointPosition(userID, joint);
-                    posJoint.z = !mirroredMovement ? -posJoint.z : posJoint.z;
-
-                    Quaternion rotJoint = manager.GetJointOrientation(userID, joint, !mirroredMovement);
-                    rotJoint = initialRotation * rotJoint;
-
-                    posJoint -= posPointMan;
-
-                    if (mirroredMovement)
-                    {
-                        posJoint.x = -posJoint.x;
-                        posJoint.z = !returnedUser ? -posJoint.z : posJoint.z;
-                    }
-
-                    bones[i].transform.localPosition = posJoint;
-                    bones[i].transform.rotation = rotJoint;
-
-                    if (skeletonLine)
-                    {
-                        lines[i].gameObject.SetActive(true);
-                        Vector3 posJoint2 = bones[i].transform.position;
-
-                        Vector3 dirFromParent = manager.GetJointDirection(userID, joint, false, false);
-                        dirFromParent.z = !mirroredMovement ? -dirFromParent.z : dirFromParent.z;
-                        Vector3 posParent = posJoint2 - dirFromParent;
-
-                        //lines[i].SetVertexCount(2);
-                        lines[i].SetPosition(0, posParent);
-                        lines[i].SetPosition(1, posJoint2);
-                    }
-
-                }
-                else
-                {
-                    bones[i].gameObject.SetActive(false);
+                    bones[i].transform.localPosition = Vector3.zero;
+                    bones[i].transform.localRotation = Quaternion.identity;
 
                     if (skeletonLine)
                     {
                         lines[i].gameObject.SetActive(false);
+                    }
+                }
+
+                return;
+            }
+
+            // set the position in space
+            Vector3 posPointMan = manager.GetUserPosition(userID);
+            posPointMan.z = !mirroredMovement ? -posPointMan.z : posPointMan.z;
+
+            // store the initial position
+            if (initialPosUserID != userID)
+            {
+                initialPosUserID = userID;
+                initialPosOffset = transform.position - (verticalMovement ? posPointMan * moveRate : new Vector3(posPointMan.x, 0, posPointMan.z) * moveRate);
+            }
+
+            transform.position = initialPosOffset +
+                (verticalMovement ? posPointMan * moveRate : new Vector3(posPointMan.x, 0, posPointMan.z) * moveRate);
+
+            // update the local positions of the bones
+            for (int i = 0; i < bones.Length; i++)
+            {
+                if (bones[i] != null)
+                {
+                    int joint = !mirroredMovement ? i : (int)KinectInterop.GetMirrorJoint((KinectInterop.JointType)i);
+                    if (joint < 0)
+                        continue;
+
+                    if (manager.IsJointTracked(userID, joint))
+                    {
+                        bones[i].gameObject.SetActive(true);
+
+                        Vector3 posJoint = manager.GetJointPosition(userID, joint);
+                        posJoint.z = !mirroredMovement ? -posJoint.z : posJoint.z;
+
+                        Quaternion rotJoint = manager.GetJointOrientation(userID, joint, !mirroredMovement);
+                        rotJoint = initialRotation * rotJoint;
+
+                        posJoint -= posPointMan;
+
+                        if (mirroredMovement)
+                        {
+                            posJoint.x = -posJoint.x;
+                            posJoint.z = !returnedUser ? -posJoint.z : posJoint.z;
+                        }
+
+                        bones[i].transform.localPosition = posJoint;
+                        bones[i].transform.rotation = rotJoint;
+
+                        if (skeletonLine)
+                        {
+                            lines[i].gameObject.SetActive(true);
+                            Vector3 posJoint2 = bones[i].transform.position;
+
+                            Vector3 dirFromParent = manager.GetJointDirection(userID, joint, false, false);
+                            dirFromParent.z = !mirroredMovement ? -dirFromParent.z : dirFromParent.z;
+                            Vector3 posParent = posJoint2 - dirFromParent;
+
+                            //lines[i].SetVertexCount(2);
+                            lines[i].SetPosition(0, posParent);
+                            lines[i].SetPosition(1, posJoint2);
+                        }
+
+                    }
+                    else
+                    {
+                        bones[i].gameObject.SetActive(false);
+
+                        if (skeletonLine)
+                        {
+                            lines[i].gameObject.SetActive(false);
+                        }
                     }
                 }
             }

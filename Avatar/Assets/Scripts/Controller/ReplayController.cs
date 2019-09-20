@@ -65,27 +65,21 @@ public class ReplayController : AvatarFlightController
 
         Debug.Log("CSV : Scenario item n°" + scenarioItemDataReplayer.currentScenarioItem);
 
-        //Debug.Log("delta T : " + _deltaT);
-
         recordedHandLeft = new Vector3(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT], kinectDataReplayer.hand_Left_Z.values[_deltaT]);
         recordedHandRight = new Vector3(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT], kinectDataReplayer.hand_Right_Z.values[_deltaT]);
         recordedShoulderCenter = new Vector3(kinectDataReplayer.shoulder_center_X.values[_deltaT], kinectDataReplayer.shoulder_center_Y.values[_deltaT], kinectDataReplayer.shoulder_center_Z.values[_deltaT]);
 
         cubeMan.Hand_Left.transform.position = recordedHandLeft;
         cubeMan.Hand_Right.transform.position = recordedHandRight;
-
         cubeMan.Neck.transform.position = recordedShoulderCenter;
-
 
         /*refAvatar.HandLeft.transform.position = recordedHandLeft;
         refAvatar.HandRight.transform.position = recordedHandRight;
         refAvatar.Neck.transform.position = recordedShoulderCenter;*/
 
-
-
-        Vector2 pl = recordedHandLeft;
-        Vector2 pr = recordedHandRight;
-        Vector2 pc = recordedShoulderCenter;
+        Vector2 pl = cubeMan.Hand_Left.transform.position;
+        Vector2 pr = cubeMan.Hand_Right.transform.position;
+        Vector2 pc = cubeMan.Neck.transform.position;
 
         Vector2 d = pr - pl;
         handMagnitude = d.magnitude;
@@ -109,11 +103,8 @@ public class ReplayController : AvatarFlightController
         if (scenarioItemDataReplayer.currentScenarioItem > -1)
         {
             //++_deltaT;
-            _deltaT += 4;
-            Debug.Log("recordedHandRight : " + recordedHandRight);
+            _deltaT += 5;
         }
-
-
     }
 
     public void adjustAltitudeFactor(float newAltitudeFactor)
