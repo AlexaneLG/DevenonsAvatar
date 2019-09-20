@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<timeline>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Start</label>
+    </scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Project user</label>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Take off</label>
+    </scenarioitem>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Dive</label>
+    </scenarioitem>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Free fly</label>
+    </scenarioitem>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Canyon</label>
+        <collision_timestamp>1.5</collision_timestamp>
+    </scenarioitem>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>Storm</label>
+        <collision_timestamp>2.1</collision_timestamp>
+    </scenarioitem>
+    <scenarioitem>
+        <scenarioitem_timestamp></scenarioitem_timestamp>
+        <label>End</label>
+    </scenarioitem>
+</timeline>
