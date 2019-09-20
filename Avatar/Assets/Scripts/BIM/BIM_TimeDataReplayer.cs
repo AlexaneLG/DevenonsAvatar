@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class BIM_TimeDataReplayer : MonoBehaviour
 {
 
     public Slider videoSlider;
+    public VideoPlayer videoPlayer;
 
     public int dataTimeIdx = -1;
     public float timeOffset = 0.55f;
@@ -42,10 +44,8 @@ public class BIM_TimeDataReplayer : MonoBehaviour
 
     void Update()
     {
-        /*if (videoSlider.value >= timeData_Replay.values[timeData_Replay.maxDataIndex - 1])
-            dataTimeIdx = -1;
 
-        else
+        if (CharacterControllerBasedOnAxis.currentScenarioItem > -1)
         {
             for (var i = 1; i < timeData_Replay.maxDataIndex; i++)
             {
@@ -53,16 +53,19 @@ public class BIM_TimeDataReplayer : MonoBehaviour
                 {
                     dataTimeIdx = i;
                 }
-            } 
-        }*/
+            }
+        }
 
-        /*for (var i = 1; i < timeData_Replay.maxDataIndex; i++)
-        {
-            dataTimeIdx = i;
-        }*/
-        if (CharacterControllerBasedOnAxis.currentScenarioItem > -1)
+        /*if (CharacterControllerBasedOnAxis.currentScenarioItem > -1)
         {
             ++dataTimeIdx;
-        }
+        }*/
+
+
+    }
+    // voir references de fonction ci dessous
+    public void adjustTimeOffset(string newTimeOffset)
+    {
+        timeOffset = float.Parse(newTimeOffset);
     }
 }

@@ -54,7 +54,7 @@ public class ReplayController : AvatarFlightController
             timeDataReplayer = GameObject.Find("TimeDataReplayer").GetComponent<BIM_TimeDataReplayer>();
         }
 
-        _deltaT = 0;
+        _deltaT = timeDataReplayer.dataTimeIdx;
 
         base.Start();
     }
@@ -64,47 +64,53 @@ public class ReplayController : AvatarFlightController
     {
 
         Debug.Log("CSV : Scenario item n°" + scenarioItemDataReplayer.currentScenarioItem);
+        //Debug.Log("delta idx : " + _deltaT + " ; time idx :" + timeDataReplayer.dataTimeIdx);
+        _deltaT = timeDataReplayer.dataTimeIdx;
 
-        recordedHandLeft = new Vector3(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT], kinectDataReplayer.hand_Left_Z.values[_deltaT]);
-        recordedHandRight = new Vector3(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT], kinectDataReplayer.hand_Right_Z.values[_deltaT]);
-        recordedShoulderCenter = new Vector3(kinectDataReplayer.shoulder_center_X.values[_deltaT], kinectDataReplayer.shoulder_center_Y.values[_deltaT], kinectDataReplayer.shoulder_center_Z.values[_deltaT]);
-
-        cubeMan.Hand_Left.transform.position = recordedHandLeft;
-        cubeMan.Hand_Right.transform.position = recordedHandRight;
-        cubeMan.Neck.transform.position = recordedShoulderCenter;
-
-        /*refAvatar.HandLeft.transform.position = recordedHandLeft;
-        refAvatar.HandRight.transform.position = recordedHandRight;
-        refAvatar.Neck.transform.position = recordedShoulderCenter;*/
-
-        Vector2 pl = cubeMan.Hand_Left.transform.position;
-        Vector2 pr = cubeMan.Hand_Right.transform.position;
-        Vector2 pc = cubeMan.Neck.transform.position;
-
-        Vector2 d = pr - pl;
-        handMagnitude = d.magnitude;
-        d.Normalize();
-        handDirection = -d.y;
-
-        if (handMagnitude > 0.5f)
+        if (scenarioItemDataReplayer.currentScenarioItem >= 2 && _deltaT > -1)
         {
-            controller.direction = Mathf.Lerp(controller.direction, handDirection * handRotationSpeed, Time.deltaTime);
+            recordedHandLeft = new Vector3(kinectDataReplayer.hand_Left_X.values[_deltaT], kinectDataReplayer.hand_Left_Y.values[_deltaT], kinectDataReplayer.hand_Left_Z.values[_deltaT]);
+            recordedHandRight = new Vector3(kinectDataReplayer.hand_Right_X.values[_deltaT], kinectDataReplayer.hand_Right_Y.values[_deltaT], kinectDataReplayer.hand_Right_Z.values[_deltaT]);
+            recordedShoulderCenter = new Vector3(kinectDataReplayer.shoulder_center_X.values[_deltaT], kinectDataReplayer.shoulder_center_Y.values[_deltaT], kinectDataReplayer.shoulder_center_Z.values[_deltaT]);
+
+            cubeMan.Hand_Left.transform.position = recordedHandLeft;
+            cubeMan.Hand_Right.transform.position = recordedHandRight;
+            cubeMan.Neck.transform.position = recordedShoulderCenter;
+
+            /*refAvatar.HandLeft.transform.position = recordedHandLeft;
+            refAvatar.HandRight.transform.position = recordedHandRight;
+            refAvatar.Neck.transform.position = recordedShoulderCenter;*/
+
+            Vector2 pl = cubeMan.Hand_Left.transform.position;
+            Vector2 pr = cubeMan.Hand_Right.transform.position;
+            Vector2 pc = cubeMan.Neck.transform.position;
+
+            Vector2 d = pr - pl;
+            handMagnitude = d.magnitude;
+            d.Normalize();
+            handDirection = -d.y;
+
+            if (handMagnitude > 0.5f)
+            {
+                controller.direction = Mathf.Lerp(controller.direction, handDirection * handRotationSpeed, Time.deltaTime);
+            }
+
+            if (CharacterControllerBasedOnAxis.currentScenarioItem > 3)
+            {
+                if (pr.y > (pc.y + tolerance) && pl.y > (pc.y + tolerance))
+                    controller.altitude = Mathf.Clamp(controller.altitude, minAltitude, maxAltitude) + altitudeFactor * Time.deltaTime;
+
+                else if (pr.y < (pc.y - tolerance) && pl.y < (pc.y - tolerance))
+                    controller.altitude = Mathf.Clamp(controller.altitude, minAltitude, maxAltitude) - altitudeFactor * Time.deltaTime;
+            }
         }
 
-        if (CharacterControllerBasedOnAxis.currentScenarioItem > 3)
-        {
-            if (pr.y > (pc.y + tolerance) && pl.y > (pc.y + tolerance))
-                controller.altitude = Mathf.Clamp(controller.altitude, minAltitude, maxAltitude) + altitudeFactor * Time.deltaTime;
 
-            else if (pr.y < (pc.y - tolerance) && pl.y < (pc.y - tolerance))
-                controller.altitude = Mathf.Clamp(controller.altitude, minAltitude, maxAltitude) - altitudeFactor * Time.deltaTime;
-        }
-
-        if (scenarioItemDataReplayer.currentScenarioItem > -1)
+        /*if (scenarioItemDataReplayer.currentScenarioItem > -1)
         {
-            //++_deltaT;
-            _deltaT += 5;
-        }
+            ++_deltaT;
+            //_deltaT += 3;
+        }*/
     }
 
     public void adjustAltitudeFactor(float newAltitudeFactor)
