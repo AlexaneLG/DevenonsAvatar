@@ -342,6 +342,7 @@
     <None Include="Assets\StreamingAssets\SPACEINT.xml" />
     <None Include="Assets\StreamingAssets\SPACEINT2.xml" />
     <None Include="Assets\StreamingAssets\WII.xml" />
+    <None Include="Assets\StreamingAssets\timeline.xml" />
     <None Include="Assets\TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

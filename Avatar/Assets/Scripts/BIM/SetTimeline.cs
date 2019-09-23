@@ -28,29 +28,25 @@ public class SetTimeline : MonoBehaviour
         string filepath = Application.dataPath + @"/StreamingAssets/" + LoadingFileName + ".xml";
         XmlDocument xmlDoc = new XmlDocument();
 
+        string tmpText = "";
+
         if (File.Exists(filepath))
         {
             xmlDoc.Load(filepath);
             XmlNodeList scenarioItemsList = xmlDoc.GetElementsByTagName("scenarioitem");
             foreach (XmlNode scenarioitem in scenarioItemsList)
             {
-                /*
-				XmlNodeList transformcontent = transformInfo.ChildNodes;
+                
+				XmlNodeList itemcontent = scenarioitem.ChildNodes;
 
-                foreach (XmlNode transformItens in transformcontent)
+                foreach (XmlNode attribut in itemcontent)
                 {
-                    if (transformItens.Name == "cameraDistance")
+                    if (attribut.Name == "texts")
                     {
-                        cameraDistance = float.Parse(transformItens.InnerText);
-                        distance_Slider.value = cameraDistance;
-                    }
-                    if (transformItens.Name == "cameraAltitude")
-                    {
-                        cameraAltitude = float.Parse(transformItens.InnerText); 
-                        altitude_Slider.value = cameraAltitude;
+                        tmpText = ; //float.Parse(attribut.InnerText); 
                     }
                 }
-				*/
+				
             }
         }
         else

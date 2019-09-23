@@ -396,7 +396,9 @@
     <Compile Include="Assets\Scripts\BIM\BIM_TimeDataReplayer.cs" />
     <Compile Include="Assets\Scripts\BIM\BlackMagic\BlackMagic.cs" />
     <Compile Include="Assets\Scripts\BIM\ChangeTimeScale.cs" />
+    <Compile Include="Assets\Scripts\BIM\DisplayGUI.cs" />
     <Compile Include="Assets\Scripts\BIM\GetKinectVideo.cs" />
+    <Compile Include="Assets\Scripts\BIM\SetTimeline.cs" />
     <Compile Include="Assets\Scripts\BIM\SwitchCamera.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CharacterController\CharacterControllerBasedOnAxis.cs" />
@@ -675,6 +677,7 @@
     <None Include="Assets\StreamingAssets\SPACEINT.xml" />
     <None Include="Assets\StreamingAssets\SPACEINT2.xml" />
     <None Include="Assets\StreamingAssets\WII.xml" />
+    <None Include="Assets\StreamingAssets\timeline.xml" />
     <None Include="Assets\TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
