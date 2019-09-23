@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Text;
 using System.Xml;
 using System.IO;
+using UnityEngine.Video;
 
 public class SetTimeline : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class SetTimeline : MonoBehaviour
     public string LoadingFileName = "timeline";
     public GameObject sliderInfo;
     public Transform Screen;
+    public VideoClip videoClip;
+    private float _videoLenght;
 
     // Use this for initialization
     void Start()
     {
         sliderInfo = Resources.Load("Slider-info") as GameObject;
+        _videoLenght = (float)videoClip.length;
         LoadFromXml();
     }
 
@@ -61,6 +65,7 @@ public class SetTimeline : MonoBehaviour
                             }
                             else if (attribut.Name == "info_timestamp")
                             {
+                                tmpSlider.GetComponent<Slider>().maxValue = _videoLenght;
                                 tmpSlider.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
                                 Debug.Log("xml values : " + attribut.InnerText);
                             }

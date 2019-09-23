@@ -22319,6 +22319,14 @@ Prefab:
       propertyPath: RotationModule.curve.minScalar
       value: 3.4907
       objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400004, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
     - {fileID: 8200000, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
@@ -22487,10 +22495,14 @@ MonoBehaviour:
   shoulderCenter: {fileID: 747625643}
   hand_Left_X: 0
   hand_Left_Y: 0
+  hand_Left_Z: 0
   hand_Right_X: 0
   hand_Right_Y: 0
+  hand_Right_Z: 0
   shoulder_center_X: 0
   shoulder_center_Y: 0
+  shoulder_center_Z: 0
+  recordBIMData: 1
 --- !u!1 &1350192242 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
@@ -27457,6 +27469,7 @@ MonoBehaviour:
   handLeft: {fileID: 424198923}
   handRight: {fileID: 1361258659}
   spine: {fileID: 2107685750}
+  replayController: {fileID: 0}
 --- !u!114 &1676147583
 MonoBehaviour:
   m_ObjectHideFlags: 0
