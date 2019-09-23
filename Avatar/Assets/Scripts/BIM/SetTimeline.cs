@@ -10,11 +10,14 @@ public class SetTimeline : MonoBehaviour
 {
 
     public string LoadingFileName = "timeline";
+    public GameObject sliderInfo;
+    public Transform Screen;
 
     // Use this for initialization
     void Start()
     {
-
+        sliderInfo = Resources.Load("Slider-info") as GameObject;
+        LoadFromXml();
     }
 
     // Update is called once per frame
@@ -28,25 +31,48 @@ public class SetTimeline : MonoBehaviour
         string filepath = Application.dataPath + @"/StreamingAssets/" + LoadingFileName + ".xml";
         XmlDocument xmlDoc = new XmlDocument();
 
-        string tmpText = "";
-
         if (File.Exists(filepath))
         {
+            Debug.Log("Open XML file " + LoadingFileName);
             xmlDoc.Load(filepath);
-            XmlNodeList scenarioItemsList = xmlDoc.GetElementsByTagName("scenarioitem");
-            foreach (XmlNode scenarioitem in scenarioItemsList)
+            // xmlDoc.GetElementsByTagName("scenarioitem");
+            XmlNodeList contentlist = xmlDoc.LastChild.ChildNodes; // 2 nodes : scenarioitems & infos
+            XmlNodeList scenarioitems, infos;
+            Debug.Log("Nom item 0 : " + contentlist.Item(0).Name);
+            Debug.Log("Nom item 1 : " + contentlist.Item(1).Name);
+            foreach (XmlNode node in contentlist)
             {
-                
-				XmlNodeList itemcontent = scenarioitem.ChildNodes;
-
-                foreach (XmlNode attribut in itemcontent)
+                if (node.Name == "scenarioitems")
                 {
-                    if (attribut.Name == "texts")
+                    scenarioitems = node.ChildNodes;
+                }
+                else if (node.Name == "infos")
+                {
+                    infos = node.ChildNodes;
+
+                    foreach (XmlNode info in infos)
                     {
-                        tmpText = ; //float.Parse(attribut.InnerText); 
+                        GameObject tmpSlider;
+                        foreach (XmlNode attribut in info.ChildNodes)
+                        {
+                            tmpSlider = Instantiate(sliderInfo, Screen);
+                            if (attribut.Name == "info_label")
+                            {
+                            }
+                            else if (attribut.Name == "info_timestamp")
+                            {
+                                tmpSlider.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
+                                Debug.Log("xml values : " + attribut.InnerText);
+                            }
+                            else if (attribut.Name == "text")
+                            {
+                            }
+
+                        }
+
+
                     }
                 }
-				
             }
         }
         else

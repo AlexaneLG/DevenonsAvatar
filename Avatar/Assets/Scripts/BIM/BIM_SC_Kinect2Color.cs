@@ -16,7 +16,6 @@ public class BIM_SC_Kinect2Color : MonoBehaviour
         Debug.Log(manager);
         if (manager && manager.IsInitialized())
         {
-            //GetComponent<Renderer>().material.mainTexture = manager.GetUsersClrTex();
 
             videoPlayer = gameObject.GetComponent<VideoPlayer>();
             videoPlayer.clip = videoClip;
@@ -26,9 +25,6 @@ public class BIM_SC_Kinect2Color : MonoBehaviour
             videoPlayer.Play();
             videoSlider.maxValue = (float)videoClip.length;
             videoSlider.value = (float)videoPlayer.time;
-
-            //movieTexture = Resources.Load("bim_video");
-            //GetComponent<Renderer>().material.mainTexture = movieTexture; // video in a texture
 
         }
     }
