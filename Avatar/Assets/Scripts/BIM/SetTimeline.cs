@@ -11,16 +11,30 @@ public class SetTimeline : MonoBehaviour
 {
 
     public string LoadingFileName = "timeline";
+
     public GameObject sliderInfo;
+    public GameObject labelInfo;
+    public GameObject textBlockLeft;
+    public GameObject textBlockTop;
+
     public Transform Screen;
     public VideoClip videoClip;
     private float _videoLenght;
+
+    public List<InfoStructure> infosList;
 
     // Use this for initialization
     void Start()
     {
         sliderInfo = Resources.Load("Slider-info") as GameObject;
+        labelInfo = Resources.Load("Label-info") as GameObject;
+        textBlockLeft = Resources.Load("TextBlock-left") as GameObject;
+        textBlockTop = Resources.Load("TextBlock-top") as GameObject;
+
+        infosList = new List<InfoStructure>();
+
         _videoLenght = (float)videoClip.length;
+
         LoadFromXml();
     }
 
@@ -28,6 +42,32 @@ public class SetTimeline : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void DisplayLabel(GameObject area)
+    {
+        foreach (InfoStructure info in infosList)
+        {
+            if (info.sliderRect == area)
+            {
+                info.labelRect.SetActive(true);
+                info.textRect.SetActive(true);
+                return;
+            }
+        }
+    }
+
+    public void HideLabel(GameObject area)
+    {
+        foreach (InfoStructure info in infosList)
+        {
+            if (info.sliderRect == area)
+            {
+                info.labelRect.SetActive(false);
+                info.textRect.SetActive(false);
+                return;
+            }
+        }
     }
 
     public void LoadFromXml()
@@ -56,26 +96,37 @@ public class SetTimeline : MonoBehaviour
 
                     foreach (XmlNode info in infos)
                     {
-                        GameObject tmpSlider;
+                        InfoStructure tmpInfo = new InfoStructure();
+                        tmpInfo.labelRect = Instantiate(labelInfo, Screen);
+                        tmpInfo.sliderRect = Instantiate(sliderInfo, Screen);
+
                         foreach (XmlNode attribut in info.ChildNodes)
                         {
-                            tmpSlider = Instantiate(sliderInfo, Screen);
                             if (attribut.Name == "info_label")
                             {
+                                tmpInfo.labelRect.transform.GetChild(0).GetComponent<Text>().text = attribut.InnerText;
                             }
                             else if (attribut.Name == "info_timestamp")
                             {
-                                tmpSlider.GetComponent<Slider>().maxValue = _videoLenght;
-                                tmpSlider.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
+                                tmpInfo.sliderRect.GetComponent<Slider>().maxValue = _videoLenght;
+                                tmpInfo.sliderRect.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
                                 Debug.Log("xml values : " + attribut.InnerText);
+                                tmpInfo.labelRect.transform.position = new Vector3(tmpInfo.sliderRect.GetComponent<Slider>().handleRect.position.x, tmpInfo.labelRect.transform.position.y, tmpInfo.labelRect.transform.position.z);
                             }
                             else if (attribut.Name == "text")
                             {
+                                if (attribut.InnerText.Length < 400) // max characters
+                                {
+                                    tmpInfo.textRect = Instantiate(textBlockTop, Screen);
+                                }
+                                else
+                                {
+                                    tmpInfo.textRect = Instantiate(textBlockLeft, Screen);
+                                }
+                                tmpInfo.textRect.transform.GetChild(0).GetComponent<Text>().text = attribut.InnerText;
                             }
-
                         }
-
-
+                        infosList.Add(tmpInfo);
                     }
                 }
             }

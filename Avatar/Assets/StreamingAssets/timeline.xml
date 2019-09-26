@@ -60,19 +60,19 @@
 	
 		<info>
 			<info_label>Canyon collision</info_label>
-			<info_timestamp>20</info_timestamp>
+			<info_timestamp>50</info_timestamp>
 			<text>Bim collision</text>
 		</info>
 	
 		<info>
 			<info_label>Storm collision</info_label>
-			<info_timestamp>20</info_timestamp>
+			<info_timestamp>70</info_timestamp>
 			<text>Eh bam collision</text>
 		</info>
 		
 		<info>
-			<info_label>Storm collision</info_label>
-			<info_timestamp>23</info_timestamp>
+			<info_label>Storm collision 2</info_label>
+			<info_timestamp>80</info_timestamp>
 			<text>Eh paf ça fait des chocapics</text>
 		</info>
 	</infos>

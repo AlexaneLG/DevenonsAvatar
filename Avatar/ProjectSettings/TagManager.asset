@@ -40,6 +40,7 @@ TagManager:
   - FarClipPlane
   - HUD
   - CanyonTracker
+  - BIMUI
   layers:
   - Default
   - TransparentFX
