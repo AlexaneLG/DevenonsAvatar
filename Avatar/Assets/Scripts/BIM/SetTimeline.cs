@@ -13,7 +13,9 @@ public class SetTimeline : MonoBehaviour
     public string LoadingFileName = "timeline";
 
     public GameObject sliderInfo;
+    public GameObject sliderScenario;
     public GameObject labelInfo;
+    public GameObject labelItem;
     public GameObject textBlockLeft;
     public GameObject textBlockTop;
 
@@ -38,7 +40,9 @@ public class SetTimeline : MonoBehaviour
     void Start()
     {
         sliderInfo = Resources.Load("Slider-info") as GameObject;
+        sliderScenario = Resources.Load("Slider-scenario") as GameObject;
         labelInfo = Resources.Load("Label-info") as GameObject;
+        labelItem = Resources.Load("Label-item") as GameObject;
         textBlockLeft = Resources.Load("TextBlock-left") as GameObject;
         textBlockTop = Resources.Load("TextBlock-top") as GameObject;
 
@@ -52,20 +56,23 @@ public class SetTimeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Manage buttons and text blocks display
         if (videoPlayer != null)
         {
             infoButton.SetActive(false);
             cameraButton.SetActive(true);
+
             foreach (InfoStructure info in infosList)
             {
                 if (videoPlayer.time >= info.timestamp && videoPlayer.time <= info.timestamp + 3)
                 {
                     infoButton.SetActive(true); // display button
                     cameraButton.SetActive(false);
+
+                    // Automatic mode
                     currentInfo = info;
                     if (!isDisplaying && currentInfo != lastInfo)
                     {
-                        Debug.Log("Start coroutine");
                         StartCoroutine(DispayInfoText(currentInfo));
                     }
                     return;
@@ -80,9 +87,9 @@ public class SetTimeline : MonoBehaviour
         isDisplaying = true;
         currentInfo.textRect.SetActive(true);
         timeScaler.pauseGame();
-        
-        yield return new WaitForSecondsRealtime(5f);
-        
+
+        yield return new WaitForSecondsRealtime(20f);
+
         timeScaler.playGame();
         currentInfo.textRect.SetActive(false);
         isDisplaying = false;
@@ -95,7 +102,7 @@ public class SetTimeline : MonoBehaviour
             if (info.sliderRect == area)
             {
                 info.labelRect.SetActive(true);
-                info.textRect.SetActive(true);
+                //info.textRect.SetActive(true);
                 return;
             }
         }
@@ -108,7 +115,7 @@ public class SetTimeline : MonoBehaviour
             if (info.sliderRect == area)
             {
                 info.labelRect.SetActive(false);
-                info.textRect.SetActive(false);
+                //info.textRect.SetActive(false);
                 return;
             }
         }
@@ -123,14 +130,37 @@ public class SetTimeline : MonoBehaviour
         {
             Debug.Log("Open XML file " + LoadingFileName);
             xmlDoc.Load(filepath);
-            // xmlDoc.GetElementsByTagName("scenarioitem");
+
             XmlNodeList contentlist = xmlDoc.LastChild.ChildNodes; // 2 nodes : scenarioitems & infos
             XmlNodeList scenarioitems, infos;
+
             foreach (XmlNode node in contentlist)
             {
                 if (node.Name == "scenarioitems")
                 {
                     scenarioitems = node.ChildNodes;
+
+                    foreach (XmlNode item in scenarioitems)
+                    {
+                        InfoStructure tmpInfo = new InfoStructure();
+                        tmpInfo.labelRect = Instantiate(labelItem, Screen);
+                        tmpInfo.sliderRect = Instantiate(sliderScenario, Screen);
+
+                        foreach (XmlNode attribut in item.ChildNodes)
+                        {
+                            if (attribut.Name == "label")
+                            {
+                                tmpInfo.labelRect.transform.GetChild(0).GetComponent<Text>().text = attribut.InnerText;
+                            }
+                            else if (attribut.Name == "scenarioitem_timestamp")
+                            {
+                                tmpInfo.sliderRect.GetComponent<Slider>().maxValue = _videoLenght;
+                                tmpInfo.sliderRect.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
+                                tmpInfo.labelRect.transform.position = new Vector3(tmpInfo.sliderRect.GetComponent<Slider>().handleRect.position.x, tmpInfo.labelRect.transform.position.y, tmpInfo.labelRect.transform.position.z);
+                            }
+                        }
+                        infosList.Add(tmpInfo);
+                    }
                 }
                 else if (node.Name == "infos")
                 {

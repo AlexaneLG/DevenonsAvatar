@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InfoSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ScenarioItemSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject userInterface;
 
@@ -21,5 +21,4 @@ public class InfoSlider : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         userInterface.GetComponent<SetTimeline>().HideLabel(this.transform.parent.parent.gameObject);
     }
-
 }

@@ -4,42 +4,42 @@
 	
 		<scenarioitem>
 			<label>Start</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>1</scenarioitem_timestamp>
 		</scenarioitem>
 		
 		<scenarioitem>
 			<label>Project user</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>3</scenarioitem_timestamp>
 		</scenarioitem>
 		
 		<scenarioitem>
 			<label>Take off</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>5</scenarioitem_timestamp>
 		</scenarioitem>
 		
 		<scenarioitem>
 			<label>Dive</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>6</scenarioitem_timestamp>
 		</scenarioitem>
 		
 		<scenarioitem>
 			<label>Free fly</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>7</scenarioitem_timestamp>
 		</scenarioitem>
 			
 		<scenarioitem>
 			<label>Canyon</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>70</scenarioitem_timestamp>
 		</scenarioitem>
 			
 		<scenarioitem>
 			<label>Storm</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>120</scenarioitem_timestamp>
 		</scenarioitem>
 			 
 		<scenarioitem>
 			<label>End</label>
-			<scenarioitem_timestamp></scenarioitem_timestamp>
+			<scenarioitem_timestamp>160</scenarioitem_timestamp>
 		</scenarioitem>
 		
 	</scenarioitems>
@@ -47,33 +47,40 @@
    
 	<infos>
 		<info>
-			<info_label>Dive info</info_label>
+			<info_label>Analyse</info_label>
+			<info_timestamp>2</info_timestamp>
+			<text>Plongé d’abord dans le noir, surgie la première vision à hauteur d’humain dévoile un paysage volontairement minimaliste. Il est dépourvu de signe de vie : ni habitants, bâtiments, végétations ou animaux. Aucun indice ne permet d’en comprendre la nature. 
+Seuls le ciel un peu brumeux et un terrain accidenté s’étendent jusqu’à l’horizon lointain. Ils évoquent un vaste monde désert, balayé par les vents, différent par ses couleurs de la Terre.
+</text>
+		</info>
+	
+		<info>
+			<info_label>Effets voulus</info_label>
+			<info_timestamp>5</info_timestamp>
+			<text>Ce minimalisme empêche de faire un rapprochement avec  un univers fictionnel précis, à parti l’idée d’une autre planète. 
+Cet espace possède des repères fondamentaux :  il y a un haut (le ciel) et un bas (le sol), l’absence de courbure de l’horizon implique une planète et donc une gravité. 
+L’absence d’indice et ce monde mystérieux stimule la curiosité face à l’inconnu : découverte, exploration, élucidation
+</text>
+		</info>
+	
+		<info>
+			<info_label>Expérience</info_label>
 			<info_timestamp>10</info_timestamp>
-			<text>In his tractibus navigerum nusquam visitur flumen sed in locis plurimis aquae suapte natura calentes emergunt ad usus aptae multiplicium medelarum. verum has quoque regiones pari sorte Pompeius Iudaeis domitis et Hierosolymis captis in provinciae speciem delata iuris dictione formavit.</text>
+			<text>Apparaitre  dans ce monde constitue une surprise. Pourquoi s’y retrouve-t-on  debout, juste au centre, de dos et avec ses propres habits ? S’agit-il d’une téléportation ? Et quelle drôle image de soi, bien inhabituelle, car il est normalement impossible de se voir de dos ! En tout cas, ce nouvel univers parait moins inhabité et hostile : il y a bien quelqu’un, et il doit bien avoir de l’air puisqu’aucune combinaison n’est requise se protéger ou pour respirer.</text>
 		</info>
 	
 		<info>
-			<info_label>Free fly info</info_label>
-			<info_timestamp>20</info_timestamp>
-			<text>Hello world</text>
-		</info>
-	
-		<info>
-			<info_label>Canyon collision</info_label>
-			<info_timestamp>50</info_timestamp>
-			<text>Bim collision</text>
-		</info>
-	
-		<info>
-			<info_label>Storm collision</info_label>
-			<info_timestamp>70</info_timestamp>
-			<text>Eh bam collision</text>
+			<info_label>Technique</info_label>
+			<info_timestamp>15</info_timestamp>
+			<text>La consigne donnée d’écarter les bras est simple et facile à exécuter. Elle place le participant en situation de responsabilité, puisqu’il cause le changement, même s’il ne sait pas ce qui va se passer. 
+Le capteur placé derrière soi est à la fois infrarouge et vidéo, de sorte qu’il repère les mouvements du corps. Aucune manette, aucun contact, c’est une commande gestuelle à distance, ce qui évite de déconcentrer le participant qui n’a aucun effort de manipulation à fournir.
+</text>
 		</info>
 		
 		<info>
-			<info_label>Storm collision 2</info_label>
-			<info_timestamp>80</info_timestamp>
-			<text>Eh paf ça fait des chocapics</text>
+			<info_label>La lévitation</info_label>
+			<info_timestamp>20</info_timestamp>
+			<text>Ecarter les bras a un effet immédiat : le participant s’élève doucement, comme s’il n’avait plus de poids propres. La gravité a-t-elle disparue ? Où serait-ce que le participant bénéficie d’un nouveau pouvoir, celui d’être aussi léger que l’air ?</text>
 		</info>
 	</infos>
    

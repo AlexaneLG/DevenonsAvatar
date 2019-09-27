@@ -7,7 +7,7 @@ public class BIM_CameraNavigation : MonoBehaviour
 
     public Transform Center;
     private Transform _gravityCenter;
-    private float orbitDistance = 10f;
+    private float orbitDistance = 5f;
 
     // Use this for initialization
     void Start()
