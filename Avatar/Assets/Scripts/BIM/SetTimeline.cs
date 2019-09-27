@@ -20,8 +20,19 @@ public class SetTimeline : MonoBehaviour
     public Transform Screen;
     public VideoClip videoClip;
     private float _videoLenght;
+    public VideoPlayer videoPlayer;
 
     public List<InfoStructure> infosList;
+
+    public InfoStructure currentInfo;
+    public InfoStructure lastInfo;
+
+    public GameObject infoButton;
+    public GameObject cameraButton;
+
+    private bool isDisplaying = false;
+
+    public ChangeTimeScale timeScaler;
 
     // Use this for initialization
     void Start()
@@ -41,7 +52,40 @@ public class SetTimeline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (videoPlayer != null)
+        {
+            infoButton.SetActive(false);
+            cameraButton.SetActive(true);
+            foreach (InfoStructure info in infosList)
+            {
+                if (videoPlayer.time >= info.timestamp && videoPlayer.time <= info.timestamp + 3)
+                {
+                    infoButton.SetActive(true); // display button
+                    cameraButton.SetActive(false);
+                    currentInfo = info;
+                    if (!isDisplaying && currentInfo != lastInfo)
+                    {
+                        Debug.Log("Start coroutine");
+                        StartCoroutine(DispayInfoText(currentInfo));
+                    }
+                    return;
+                }
+            }
+        }
+    }
 
+    public IEnumerator DispayInfoText(InfoStructure currentInfo)
+    {
+        lastInfo = currentInfo;
+        isDisplaying = true;
+        currentInfo.textRect.SetActive(true);
+        timeScaler.pauseGame();
+        
+        yield return new WaitForSecondsRealtime(5f);
+        
+        timeScaler.playGame();
+        currentInfo.textRect.SetActive(false);
+        isDisplaying = false;
     }
 
     public void DisplayLabel(GameObject area)
@@ -82,8 +126,6 @@ public class SetTimeline : MonoBehaviour
             // xmlDoc.GetElementsByTagName("scenarioitem");
             XmlNodeList contentlist = xmlDoc.LastChild.ChildNodes; // 2 nodes : scenarioitems & infos
             XmlNodeList scenarioitems, infos;
-            Debug.Log("Nom item 0 : " + contentlist.Item(0).Name);
-            Debug.Log("Nom item 1 : " + contentlist.Item(1).Name);
             foreach (XmlNode node in contentlist)
             {
                 if (node.Name == "scenarioitems")
@@ -110,8 +152,8 @@ public class SetTimeline : MonoBehaviour
                             {
                                 tmpInfo.sliderRect.GetComponent<Slider>().maxValue = _videoLenght;
                                 tmpInfo.sliderRect.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
-                                Debug.Log("xml values : " + attribut.InnerText);
                                 tmpInfo.labelRect.transform.position = new Vector3(tmpInfo.sliderRect.GetComponent<Slider>().handleRect.position.x, tmpInfo.labelRect.transform.position.y, tmpInfo.labelRect.transform.position.z);
+                                tmpInfo.timestamp = float.Parse(attribut.InnerText);
                             }
                             else if (attribut.Name == "text")
                             {

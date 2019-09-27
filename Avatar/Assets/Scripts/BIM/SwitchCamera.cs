@@ -10,6 +10,8 @@ public class SwitchCamera : MonoBehaviour {
 
     private bool _switchCamera;
 
+    public ChangeTimeScale timeScaler;
+
 	// Use this for initialization
 	void Start () {
         _switchCamera = false;
@@ -29,6 +31,22 @@ public class SwitchCamera : MonoBehaviour {
             bimCamera.gameObject.SetActive(_switchCamera);
             modelCamera.gameObject.SetActive(_switchCamera);
             mainCamera.gameObject.SetActive(!_switchCamera);
+        }
+    }
+
+    public void SwitchToExternalCamera()
+    {
+        _switchCamera = !_switchCamera;
+        bimCamera.gameObject.SetActive(_switchCamera);
+        modelCamera.gameObject.SetActive(_switchCamera);
+        mainCamera.gameObject.SetActive(!_switchCamera);
+
+        if (bimCamera.isActiveAndEnabled)
+        {
+            timeScaler.pauseGame();
+        } else
+        {
+            timeScaler.playGame();
         }
     }
 }
