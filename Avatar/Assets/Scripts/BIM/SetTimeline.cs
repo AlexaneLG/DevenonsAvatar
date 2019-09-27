@@ -36,6 +36,8 @@ public class SetTimeline : MonoBehaviour
 
     public ChangeTimeScale timeScaler;
 
+    private GameObject tmpCurrentItem;
+
     // Use this for initialization
     void Start()
     {
@@ -49,6 +51,8 @@ public class SetTimeline : MonoBehaviour
         infosList = new List<InfoStructure>();
 
         _videoLenght = (float)videoClip.length;
+
+        tmpCurrentItem = new GameObject();
 
         LoadFromXml();
     }
@@ -64,20 +68,34 @@ public class SetTimeline : MonoBehaviour
 
             foreach (InfoStructure info in infosList)
             {
-                if (videoPlayer.time >= info.timestamp && videoPlayer.time <= info.timestamp + 3)
+                if (info.type == "info")
                 {
-                    infoButton.SetActive(true); // display button
-                    cameraButton.SetActive(false);
-
-                    // Automatic mode
-                    currentInfo = info;
-                    if (!isDisplaying && currentInfo != lastInfo)
+                    if (videoPlayer.time >= info.timestamp && videoPlayer.time <= info.timestamp + 3)
                     {
-                        StartCoroutine(DispayInfoText(currentInfo));
+                        infoButton.SetActive(true); // display button
+                        cameraButton.SetActive(false);
+
+                        // Automatic mode
+                        currentInfo = info;
+                        if (!isDisplaying && currentInfo != lastInfo)
+                        {
+                            StartCoroutine(DispayInfoText(currentInfo));
+                        }
+                        return;
                     }
-                    return;
+                }
+                else if (info.type == "item")
+                {
+                    //info.sliderRect.transform.GetChild(2).GetChild(0).GetChild(0).gameObject.SetActive(false);
+                    if (videoPlayer.time >= info.timestamp)
+                    {
+                        //tmpCurrentItem = info.sliderRect.transform.GetChild(2).GetChild(0).GetChild(0).gameObject;
+                        info.sliderRect.transform.GetChild(2).GetChild(0).GetComponent<Image>().color = Color.white;
+                        //Debug.Log("Couleur circle : " + info.sliderRect.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<RawImage>().color);
+                    }
                 }
             }
+            //tmpCurrentItem.SetActive(true);
         }
     }
 
@@ -154,11 +172,13 @@ public class SetTimeline : MonoBehaviour
                             }
                             else if (attribut.Name == "scenarioitem_timestamp")
                             {
+                                tmpInfo.timestamp = float.Parse(attribut.InnerText);
                                 tmpInfo.sliderRect.GetComponent<Slider>().maxValue = _videoLenght;
                                 tmpInfo.sliderRect.GetComponent<Slider>().value = float.Parse(attribut.InnerText);
                                 tmpInfo.labelRect.transform.position = new Vector3(tmpInfo.sliderRect.GetComponent<Slider>().handleRect.position.x, tmpInfo.labelRect.transform.position.y, tmpInfo.labelRect.transform.position.z);
                             }
                         }
+                        tmpInfo.type = "item";
                         infosList.Add(tmpInfo);
                     }
                 }
@@ -198,6 +218,7 @@ public class SetTimeline : MonoBehaviour
                                 tmpInfo.textRect.transform.GetChild(0).GetComponent<Text>().text = attribut.InnerText;
                             }
                         }
+                        tmpInfo.type = "info";
                         infosList.Add(tmpInfo);
                     }
                 }

@@ -13,5 +13,5 @@ public class InfoStructure
     public GameObject sliderRect;
     public GameObject textRect;
 
-
+    public string type; // info (event that displays texts) or item (scenario)
 }
