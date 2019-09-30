@@ -10,7 +10,7 @@ public class End_AXP_Avatar : AugmentedScenarioItem
 
     override protected void Awake()
     {
-        durationIncr = 50;
+        durationIncr = 0; //50
 
         base.Awake();
     }
@@ -36,13 +36,14 @@ public class End_AXP_Avatar : AugmentedScenarioItem
             materials[i] = Resources.Load("InvisibleMaterial") as Material;
         }
 
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedEnd;
+
         base.Start();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-
 
         base.Update();
     }

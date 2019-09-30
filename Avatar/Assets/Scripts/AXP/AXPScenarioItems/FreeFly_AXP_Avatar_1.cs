@@ -53,6 +53,8 @@ public class FreeFly_AXP_Avatar_1 : AugmentedScenarioItem
             bubble.SetActive(false);
         }
 
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedFreeFly; // Lerp to
+
         base.Start();
     }
 

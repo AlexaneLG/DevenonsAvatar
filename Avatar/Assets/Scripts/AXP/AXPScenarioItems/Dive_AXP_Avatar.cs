@@ -15,6 +15,8 @@ public class Dive_AXP_Avatar : AugmentedScenarioItem
     // Use this for initialization
     protected override void Start()
     {
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedDive; // Lerp to
+
         base.Start();
     }
 

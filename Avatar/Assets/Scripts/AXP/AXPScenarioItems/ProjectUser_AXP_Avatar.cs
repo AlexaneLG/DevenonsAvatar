@@ -13,7 +13,7 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
     override protected void Awake()
     {
         //durationIncr = 40;
-        durationIncr = 10;
+        durationIncr = 0;
         base.Awake();
     }
 
@@ -24,7 +24,7 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
 
         if (dataManager != null && dataManager.isKinectActive)
         {
-            transform.Find("RulerParent").gameObject.SetActive(true);
+            /*transform.Find("RulerParent").gameObject.SetActive(true);
 
             idxSample = 0;
             if (samplesNumber == 0)
@@ -38,7 +38,7 @@ public class ProjectUser_AXP_Avatar : AugmentedScenarioItem
                 heightBlock.SetActive(false);
             }
 
-            StartCoroutine(DisplayHeight());
+            StartCoroutine(DisplayHeight());*/
         }
         else
         {

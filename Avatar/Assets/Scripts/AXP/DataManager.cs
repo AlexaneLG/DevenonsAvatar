@@ -32,6 +32,21 @@ public class DataManager : MonoBehaviour
     private int _i;
     private float _canyonHeight;
 
+    // Constant values
+    public bool useConstValues = true;
+    public float constSpeedTakeOff = 20f;
+    public float constSpeedDive = 50f;
+    public float constSpeedFreeFly = 80f;
+    public float constSpeedCanyon = 20f;
+    public float constSpeedEnd = 0f;
+    public float constSpeedUpFactor = 10f;
+    public float constSpeedDownFactor = -15f;
+    public float constCanyonHeight = 500f;
+    public float constCanyonWidth = 200f;
+    public float constSpeedMeteor = 100f;
+
+    public float tmpSpeedFreeFly;
+
     public float CanyonHeight
     {
         get
@@ -155,8 +170,9 @@ public class DataManager : MonoBehaviour
         if (characterManager != null)
         {
             characterController = characterManager.GetComponent<CharacterControllerBasedOnAxis>();
+
             // Set datas
-            _speed = characterController.speed;
+            _speed = 0;
             _attitude = characterController.direction;
             _startAltitude = characterController.transform.position.y;
             Debug.Log("Start altitude : " + _startAltitude);
@@ -193,10 +209,21 @@ public class DataManager : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        _speed = characterController.speed;
-        _attitude = characterController.direction;
-        _altitude = (characterController.transform.position.y - _startAltitude);
-        _rotation = characterController.transform.rotation.eulerAngles.y;
+        if (!useConstValues)
+        {
+            _speed = characterController.speed;
+            _attitude = characterController.direction;
+            _altitude = (characterController.transform.position.y - _startAltitude);
+            _rotation = characterController.transform.rotation.eulerAngles.y;
+        }
+        else
+        {
+            _speed = Mathf.Lerp(_speed, tmpSpeedFreeFly, Time.deltaTime);
+            _attitude = characterController.direction;
+            _altitude = (characterController.transform.position.y - _startAltitude);
+            _rotation = characterController.transform.rotation.eulerAngles.y;
+
+        }
     }
 
     public void SetScenarioItemOnChange(ScenarioItem item, int index)

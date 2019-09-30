@@ -100,22 +100,50 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update attitude
-        _attitudeValue = Mathf.Round(dataManager.Attitude * 30);
-        attitudeText.GetComponent<Text>().text = _attitudeValue.ToString();
-        attitudeImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
-            attitudeImage.transform.rotation.x,
-            attitudeImage.transform.rotation.y,
-            _attitudeValue * (-1));
-        // Update altitude
-        _altitudeValue = Mathf.Round(dataManager.Altitude);
-        altitudeText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_altitudeValue));
-        // Update rotation
-        _rotationValue = dataManager.LocalRotation;
-        compassImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
-            compassImage.transform.rotation.x,
-            compassImage.transform.rotation.y,
-            _rotationValue);
+        if (!dataManager.useConstValues)
+        {
+            // Update speed
+            _speedValue = Mathf.Round(dataManager.Speed);
+            speedText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_speedValue));
+            // Update attitude
+            _attitudeValue = Mathf.Round(dataManager.Attitude * 30);
+            attitudeText.GetComponent<Text>().text = _attitudeValue.ToString();
+            attitudeImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
+                attitudeImage.transform.rotation.x,
+                attitudeImage.transform.rotation.y,
+                _attitudeValue * (-1));
+            // Update altitude
+            _altitudeValue = Mathf.Round(dataManager.Altitude);
+            altitudeText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_altitudeValue));
+            // Update rotation
+            _rotationValue = dataManager.LocalRotation;
+            compassImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
+                compassImage.transform.rotation.x,
+                compassImage.transform.rotation.y,
+                _rotationValue);
+        }
+        else
+        {
+            // Update speed
+            _speedValue = Mathf.Round(dataManager.Speed);
+            speedText.GetComponent<Text>().text = dataManager.changeFloatFormat(_speedValue);
+            // Update attitude
+            _attitudeValue = Mathf.Round(dataManager.Attitude * 30);
+            attitudeText.GetComponent<Text>().text = _attitudeValue.ToString();
+            attitudeImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
+                attitudeImage.transform.rotation.x,
+                attitudeImage.transform.rotation.y,
+                _attitudeValue * (-1));
+            // Update altitude
+            _altitudeValue = Mathf.Round(dataManager.Altitude);
+            altitudeText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_altitudeValue));
+            // Update rotation
+            _rotationValue = dataManager.LocalRotation;
+            compassImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(
+                compassImage.transform.rotation.x,
+                compassImage.transform.rotation.y,
+                _rotationValue);
+        }
     }
 
     private void FixedUpdate()
@@ -235,8 +263,8 @@ public class HUDController : MonoBehaviour
         while (true)
         {
             // Display avatar's speed
-            _speedValue = GetAvatarSpeed();
-            speedText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_speedValue));
+            //_speedValue = GetAvatarSpeed();
+            //speedText.GetComponent<Text>().text = dataManager.changeFloatFormat(dataManager.scaleData(_speedValue));
             yield return new WaitForSeconds(0.4f);
         }
     }

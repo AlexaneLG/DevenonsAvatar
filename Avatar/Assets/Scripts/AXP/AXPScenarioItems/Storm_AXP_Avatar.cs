@@ -28,6 +28,8 @@ public class Storm_AXP_Avatar : AugmentedScenarioItem
         meteorRainBubble = transform.GetChild(1).gameObject;
         meteorRainBubble.gameObject.SetActive(false);
 
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedFreeFly;
+
         base.Start();
 
         // Set offset

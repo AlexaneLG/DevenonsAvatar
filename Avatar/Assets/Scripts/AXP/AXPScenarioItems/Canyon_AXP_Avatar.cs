@@ -94,6 +94,7 @@ public class Canyon_AXP_Avatar : AugmentedScenarioItem
             canyonWidthArrow = GameObject.Find("CanyonWidthArrow").transform;
         }
 
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedCanyon;
 
         base.Start();
 

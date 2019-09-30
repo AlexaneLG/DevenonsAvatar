@@ -16,6 +16,7 @@ public class TakeOff_AXP_Avatar : AugmentedScenarioItem
     protected override void Start()
     {
         dataManager.DisplayHUD(true); // Display HUD
+
         transform.GetChild(0).gameObject.SetActive(false);
 
         base.Start();
@@ -34,9 +35,20 @@ public class TakeOff_AXP_Avatar : AugmentedScenarioItem
             yield return null;
         }
 
+        StartCoroutine(LerpSpeedTakeOff());
+
         transform.GetChild(0).gameObject.SetActive(true); // Display text
         yield return new WaitForSeconds(4);
 
+    }
+
+    IEnumerator LerpSpeedTakeOff()
+    {
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedTakeOff; // Lerp to
+
+        yield return new WaitForSeconds(2f);
+
+        dataManager.tmpSpeedFreeFly = dataManager.constSpeedTakeOff / 2; // Lerp to
     }
 
 }

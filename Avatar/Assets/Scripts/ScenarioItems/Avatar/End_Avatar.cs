@@ -3,6 +3,10 @@ using System.Collections;
 
 public class End_Avatar : FreeFly_Avatar
 {
+    /*
+    flip image
+    phrase pour baisser les bras 
+    */
 
     public GameObject endQuad;
     public GameObject videoCameraPlane;
