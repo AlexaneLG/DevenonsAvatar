@@ -31,12 +31,16 @@ public class SetTimeline : MonoBehaviour
 
     public GameObject infoButton;
     public GameObject cameraButton;
+    public GameObject exitInfoButton;
 
     private bool isDisplaying = false;
 
     public ChangeTimeScale timeScaler;
 
     private GameObject tmpCurrentItem;
+
+    public bool enableAutomaticMode = false;
+    private bool _exitInfo = false;
 
     // Use this for initialization
     void Start()
@@ -54,6 +58,8 @@ public class SetTimeline : MonoBehaviour
 
         tmpCurrentItem = new GameObject();
 
+        exitInfoButton.SetActive(false);
+
         LoadFromXml();
     }
 
@@ -63,8 +69,11 @@ public class SetTimeline : MonoBehaviour
         // Manage buttons and text blocks display
         if (videoPlayer != null)
         {
-            infoButton.SetActive(false);
-            cameraButton.SetActive(true);
+            if (enableAutomaticMode)
+            {
+                infoButton.SetActive(false);
+            }
+
 
             foreach (InfoStructure info in infosList)
             {
@@ -72,16 +81,20 @@ public class SetTimeline : MonoBehaviour
                 {
                     if (videoPlayer.time >= info.timestamp && videoPlayer.time <= info.timestamp + 3)
                     {
-                        infoButton.SetActive(true); // display button
-                        cameraButton.SetActive(false);
 
-                        // Automatic mode
                         currentInfo = info;
-                        if (!isDisplaying && currentInfo != lastInfo)
+                        // Automatic mode
+                        if (enableAutomaticMode)
                         {
-                            StartCoroutine(DispayInfoText(currentInfo));
+                            infoButton.SetActive(true); // display button
+                            cameraButton.SetActive(false);
+
+                            if (!isDisplaying && currentInfo != lastInfo)
+                            {
+                                StartCoroutine(DispayInfoText(currentInfo));
+                            }
+                            return;
                         }
-                        return;
                     }
                 }
                 else if (info.type == "item")
@@ -99,18 +112,46 @@ public class SetTimeline : MonoBehaviour
         }
     }
 
+    public void DisplayCurrentInfo()
+    {
+        if (currentInfo != null)
+        {
+            StartCoroutine(DispayInfoText(currentInfo));
+        }
+    }
+
+    public void ExitInfo()
+    {
+        _exitInfo = true;
+        exitInfoButton.SetActive(false);
+    }
+
     public IEnumerator DispayInfoText(InfoStructure currentInfo)
     {
+        exitInfoButton.SetActive(true);
         lastInfo = currentInfo;
         isDisplaying = true;
         currentInfo.textRect.SetActive(true);
         timeScaler.pauseGame();
 
-        yield return new WaitForSecondsRealtime(20f);
+        if (enableAutomaticMode)
+        {
+            yield return new WaitForSecondsRealtime(20f);
+        }
+        else
+        {
+            while (!_exitInfo)
+            {
+                yield return null;
+            }
+        }
 
         timeScaler.playGame();
         currentInfo.textRect.SetActive(false);
         isDisplaying = false;
+
+        cameraButton.SetActive(true);
+        _exitInfo = false;
     }
 
     public void DisplayLabel(GameObject area)
