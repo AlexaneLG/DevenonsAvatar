@@ -134,7 +134,6 @@
     <Compile Include="Assets\AVProWindowsMedia\Scripts\Components\AVProWindowsMediaMovie.cs" />
     <Compile Include="Assets\AVProWindowsMedia\Scripts\Components\AVProWindowsMediaMovieFromResource.cs" />
     <Compile Include="Assets\AVProWindowsMedia\Scripts\Components\AVProWindowsMediaUGUIComponent.cs" />
-    <Compile Include="Assets\AVProWindowsMedia\Scripts\Components\InfoStructure.cs" />
     <Compile Include="Assets\AVProWindowsMedia\Scripts\Internal\AVProWindowsMedia.cs" />
     <Compile Include="Assets\AVProWindowsMedia\Scripts\Internal\AVProWindowsMediaFormatConverter.cs" />
     <Compile Include="Assets\AVProWindowsMedia\Scripts\Internal\AVProWindowsMediaPlugin.cs" />
@@ -398,9 +397,13 @@
     <Compile Include="Assets\Scripts\BIM\BlackMagic\BlackMagic.cs" />
     <Compile Include="Assets\Scripts\BIM\ChangeTimeScale.cs" />
     <Compile Include="Assets\Scripts\BIM\DisplayGUI.cs" />
+    <Compile Include="Assets\Scripts\BIM\DisplaySpeedModes.cs" />
     <Compile Include="Assets\Scripts\BIM\GetKinectVideo.cs" />
     <Compile Include="Assets\Scripts\BIM\InfoSlider.cs" />
+    <Compile Include="Assets\Scripts\BIM\InfoStructure.cs" />
+    <Compile Include="Assets\Scripts\BIM\ScenarioItemSlider.cs" />
     <Compile Include="Assets\Scripts\BIM\SetTimeline.cs" />
+    <Compile Include="Assets\Scripts\BIM\SwitchAvatar.cs" />
     <Compile Include="Assets\Scripts\BIM\SwitchCamera.cs" />
     <Compile Include="Assets\Scripts\CameraRotation.cs" />
     <Compile Include="Assets\Scripts\CharacterController\CharacterControllerBasedOnAxis.cs" />

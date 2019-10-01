@@ -7,6 +7,7 @@ public class SC_AvatarSwitch : MonoBehaviour
     public GameObject[] avatars;
     public int defaultAvatar; // collision
     public int currentAvatar;
+    public int avatarIndex = 0;
 
     void Update()
     {
@@ -37,6 +38,17 @@ public class SC_AvatarSwitch : MonoBehaviour
         }
     }
 
+    public void SwitchAvatar()
+    {
+        ++avatarIndex;
+        if (avatarIndex > avatars.Length-1)
+        {
+            avatarIndex = 0;
+        }
+        currentAvatar = avatarIndex;
+        SetAvatar(avatarIndex);
+    }
+
 
     /// <summary>
     /// Set current avatar
@@ -48,11 +60,25 @@ public class SC_AvatarSwitch : MonoBehaviour
         {
             for (int i = 0; i < avatars.Length; i++)
             {
-                if (i == keyRef)
-                    avatars[i].SetActive(true);
-
-                else
-                    avatars[i].SetActive(false);
+                if (i == keyRef) {
+                    if (i == 0) // cameraPlane
+                    {
+                        avatars[i].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+                    }
+                    else
+                    {
+                        avatars[i].SetActive(true);
+                    }
+                }
+                else {
+                    if (i == 0) // cameraPlane
+                    {
+                        avatars[i].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+                    } else
+                    {
+                        avatars[i].SetActive(false);
+                    }
+                }
             }
         }
     }

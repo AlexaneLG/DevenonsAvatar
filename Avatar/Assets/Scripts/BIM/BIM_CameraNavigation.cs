@@ -33,7 +33,9 @@ public class BIM_CameraNavigation : MonoBehaviour
 
     void LateUpdate()
     {
-        turnAround();
+        //turnAround();
+        transform.position = Center.position + (transform.position - Center.position).normalized * orbitDistance;
+        transform.LookAt(Center);
     }
 
     private void turnAround()
@@ -49,6 +51,20 @@ public class BIM_CameraNavigation : MonoBehaviour
             transform.RotateAround(Center.position, Vector3.up, 0.5f);
         }
         //transform.position = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        transform.LookAt(Center);
+    }
+
+    public void TurnLeft()
+    {
+        transform.position = Center.position + (transform.position - Center.position).normalized * orbitDistance;
+        transform.RotateAround(Center.position, Vector3.up, 0.5f);
+        transform.LookAt(Center);
+    }
+
+    public void TurnRight()
+    {
+        transform.position = Center.position + (transform.position - Center.position).normalized * orbitDistance;
+        transform.RotateAround(Center.position, Vector3.up, -0.5f);
         transform.LookAt(Center);
     }
 }

@@ -31,7 +31,10 @@ public class SetTimeline : MonoBehaviour
 
     public GameObject infoButton;
     public GameObject cameraButton;
-    public GameObject exitInfoButton;
+    //public GameObject exitInfoButton;
+
+    public GameObject playButton;
+    public GameObject pauseButton;
 
     private bool isDisplaying = false;
 
@@ -41,6 +44,7 @@ public class SetTimeline : MonoBehaviour
 
     public bool enableAutomaticMode = false;
     private bool _exitInfo = false;
+    
 
     // Use this for initialization
     void Start()
@@ -58,7 +62,7 @@ public class SetTimeline : MonoBehaviour
 
         tmpCurrentItem = new GameObject();
 
-        exitInfoButton.SetActive(false);
+        //exitInfoButton.SetActive(false);
 
         LoadFromXml();
     }
@@ -116,6 +120,9 @@ public class SetTimeline : MonoBehaviour
     {
         if (currentInfo != null)
         {
+            pauseButton.SetActive(false);
+            playButton.SetActive(true);
+            cameraButton.SetActive(false);
             StartCoroutine(DispayInfoText(currentInfo));
         }
     }
@@ -123,12 +130,30 @@ public class SetTimeline : MonoBehaviour
     public void ExitInfo()
     {
         _exitInfo = true;
-        exitInfoButton.SetActive(false);
+        //exitInfoButton.SetActive(false);
+    }
+
+    public void playBIM()
+    {
+        if (_exitInfo == false)
+        {
+            _exitInfo = true;
+        }
+        playButton.SetActive(false);
+        pauseButton.SetActive(true);
+        timeScaler.playGame();
+    }
+
+    public void pauseBIM()
+    {
+        playButton.SetActive(true);
+        pauseButton.SetActive(false);
+        timeScaler.pauseGame();
     }
 
     public IEnumerator DispayInfoText(InfoStructure currentInfo)
     {
-        exitInfoButton.SetActive(true);
+        //exitInfoButton.SetActive(true);
         lastInfo = currentInfo;
         isDisplaying = true;
         currentInfo.textRect.SetActive(true);
