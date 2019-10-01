@@ -10002,6 +10002,7 @@ Transform:
   - {fileID: 738158215}
   - {fileID: 1556591288}
   - {fileID: 818807882}
+  - {fileID: 1050195421}
   - {fileID: 1823432591}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -19089,6 +19090,10 @@ MonoBehaviour:
   timeScaler: {fileID: 1583733008}
   avatarSwitchButton: {fileID: 1362175362}
   infoButton: {fileID: 511894221}
+  cameraImage: {fileID: 1873545913}
+  cameraFullImage: {fileID: 2800000, guid: 893dbca7d94f144429832ab0d5ba9d8a, type: 3}
+  cameraLineImage: {fileID: 2800000, guid: 879477744da991d44bb21cb387ad8b0d, type: 3}
+  cameraNavigationButtons: {fileID: 1052812015}
 --- !u!1 &1037294387
 GameObject:
   m_ObjectHideFlags: 0
@@ -19257,6 +19262,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fcf8efef14c5ed409017b0389289c34, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1050195420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1050195421}
+  m_Layer: 0
+  m_Name: BIM_Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050195421
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1050195420}
+  m_LocalRotation: {x: -0, y: 0.00000001996017, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 556817914}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1051174448
 GameObject:
   m_ObjectHideFlags: 0
@@ -19299,7 +19332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1052812016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24533,6 +24566,118 @@ Prefab:
     - target: {fileID: 100008, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 400.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
+      propertyPath: RotationModule.curve.minScalar
+      value: 3.4907
       objectReference: {fileID: 0}
     - target: {fileID: 19800006, guid: ab936323ea63d6d46970f604bcc13efa, type: 2}
       propertyPath: InitialModule.startSpeed.minScalar
@@ -34879,7 +35024,7 @@ Transform:
   - {fileID: 1896651590}
   - {fileID: 1131447653}
   m_Father: {fileID: 556817914}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1823432592
 Rigidbody:
@@ -35673,7 +35818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdcdc05f7c3770243a22d3a720252696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Center: {fileID: 556817914}
+  Center: {fileID: 1050195421}
 --- !u!92 &1858408489
 Behaviour:
   m_ObjectHideFlags: 0
